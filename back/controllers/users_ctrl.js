@@ -79,7 +79,7 @@ exports.signIn = async (req, res, next) => {
         secure: isProduction,   
         maxAge: 24 * 60 * 60 * 1000, 
         // sameSite: 'None', // A enlever sur le meme site
-        partitioned: true,
+        // partitioned: true,
         path: "/"
     });
     

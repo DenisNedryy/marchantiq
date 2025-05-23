@@ -224,6 +224,8 @@ exports.updateItemImage = async (req, res, next) => {
 exports.deleteItem = async (req, res, next) => {
     try {
         const uuid = req.params.uuid;
+        await pool.execute("DELETE FROM items WHERE uuid = ?",[uuid]);
+        res.status(200).json({msg: "item delete"})
 
     } catch (err) {
         return res.status(500).json({ erreur: err });
@@ -233,7 +235,24 @@ exports.deleteItem = async (req, res, next) => {
 exports.deleteItemImg = async (req, res, next) => {
     try {
         const uuid = req.params.uuid;
+        const imgUuid = req.params.imgUuid;
 
+        const [items] = await pool.execute("SELECT items WhERE uuid = ?", [uuid]);
+        const item = items[0];
+        if(!item) return res.status(404).json({msg: "Item introuvable"});
+
+        const itemImg = await pool.execute("SELECT items_imgs WHERE uuid = ?", [uuid]);
+           // fs l'image
+          try {
+                await fs.unlink(`uploads/pictures/items/${itemImg.image_url}`);
+            } catch (err) {
+                console.error("Erreur lors de la suppression de l'ancienne image:", err);
+                return res.status(500).json({ msg: "Error deleting old image", error: err });
+            }
+        await pool.execute("DELETE FROM items_images WHERE item_id = ? && uuid = ?",[item.id, imgUuid]);
+
+     
+        res.status(200).json({msg: "Image supprimée"});
     } catch (err) {
         return res.status(500).json({ erreur: err });
     }

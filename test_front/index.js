@@ -58,7 +58,7 @@ formImg.addEventListener("submit", async (e) => {
     if (!file) return;
 
     const formData = new FormData();
-    formData.append("item_uuid", "60ef5a1b-3920-449a-95a7-03d000037d56");
+    formData.append("item_uuid", "95460645-afd0-45eb-b877-22930912bbb7");
     formData.append("img_url", file);
     try {
         const preRes = await fetch("http://localhost:1989/api/items/images", {
