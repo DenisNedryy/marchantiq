@@ -4,5 +4,6 @@ CREATE TABLE threads_images(
     thread_id INT NOT NULL,
     image_url VARCHAR(500) NOT NULL,
     position INT DEFAULT 0,
+    commentaire VARCHAR(500),
     FOREIGN KEY (thread_id) REFERENCES threads(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;

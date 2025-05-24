@@ -8,4 +8,4 @@ CREATE TABLE news(
       'tableau', 'carte-postale', 'divers'
     ),
     description TEXT
-) ENGINE=InnoDB;
+) ENGINE=InnoDB; 

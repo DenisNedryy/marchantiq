@@ -59,6 +59,8 @@ exports.updateNews = async (req, res, next) => {
         const { titre, category, description } = req.body;
         const fileName = req.file ? req.file.filename : null;
 
+        if(fileName)  await fs.unlink(`uploads/pictures/items/${currentNews.img_principale}`);
+
         const newsData = {
             titre: titre | null,
             category: category || null,
@@ -71,10 +73,11 @@ exports.updateNews = async (req, res, next) => {
         const currentKeys = Object.keys.filter((key)=>newsData[key]!==null);
         const currentValues = Object.values.filter((value)=>value!==null);
 
-        const placeHolder = 
+        const placeHolder = currentKeys.map((cell)=> `${cell} = ?`).join(", ");
 
-        await pool.execute("UPDATE news ")
+        await pool.execute(`UPDATE news SET ${placeHolder}`,[currentValues]);
 
+        return res.status(200).json({msg: "Objet updated"});
 
     } catch (err) {
         res.status(500).json({ error: err.message });
