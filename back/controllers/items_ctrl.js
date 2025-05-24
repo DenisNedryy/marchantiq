@@ -63,7 +63,6 @@ exports.createItem = async (req, res, next) => {
         if (!name || !price || !category) {
             return res.status(400).json({ msg: "name, price, category sont obligatoires" });
         }
-        const fileName = req.file ? req.file.filename : null;
 
         // Création de l'objet recipe
         const itemData = {
@@ -85,7 +84,6 @@ exports.createItem = async (req, res, next) => {
             year: year || null,
             description: description || null,
             isNew: isNew || null,
-            img_url: fileName || "imageParDefault"
         };
 
         // Construction de la requête pour insérer l'item
@@ -189,7 +187,7 @@ exports.updateItemImage = async (req, res, next) => {
     try {
         const uuid = req.params.uuid;
         const imgUuid = req.params.imgUuid;
-        const fileName = req.file ? req.file.filename : null;;
+        const fileName = req.file ? req.file.filename : null;
 
         // Récupération de l'item associé à l'image
         const [items] = await pool.execute(`SELECT * FROM items WHERE uuid = ?`, [uuid]);
