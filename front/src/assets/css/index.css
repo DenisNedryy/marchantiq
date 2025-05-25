@@ -1,0 +1,9 @@
+@import "./miseEnPage.css";
+@import "./utils.css";
+
+/*pages*/
+@import "./pages/accueil.css";
+@import "./pages/presentation.css";
+@import "./pages/news.css";
+@import "./pages/auth.css";
+@import "./pages/contact.css";
