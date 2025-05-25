@@ -1,0 +1,49 @@
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__logo {
+    background-color: black;
+    width: 100%;
+}
+
+.header__logo__content {
+    display: flex;
+    justify-content: center;
+}
+
+header .header__logo img {
+    width: 188px;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+}
+
+.logoAntic {
+    width: 116px;
+    padding: 15px;
+    filter: brightness(1.5);
+}
+
+.chopeGer {
+    width: 58px;
+    padding: 9px;
+    filter: brightness(1.5);
+}
+
+.header__menu__pages ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.header__menu__pages li {
+    margin: 10px;
+    cursor: pointer;
+    color: rgb(103, 103, 103);
+}

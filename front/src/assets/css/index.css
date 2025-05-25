@@ -1,7 +1,11 @@
 @import "./miseEnPage.css";
 @import "./utils.css";
 
-/*pages*/
+/*Layouts*/
+@import "./layouts/header.css";
+@import "./layouts/footer.css";
+
+/*Pages*/
 @import "./pages/accueil.css";
 @import "./pages/presentation.css";
 @import "./pages/news.css";
