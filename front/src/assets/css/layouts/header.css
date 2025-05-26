@@ -17,6 +17,8 @@ header .header__logo img {
     width: 188px;
 }
 
+/*----------- Menu  ---------*/
+
 .header__menu {
     display: flex;
     justify-content: center;
@@ -28,22 +30,104 @@ header .header__logo img {
 .logoAntic {
     width: 116px;
     padding: 15px;
-    filter: brightness(1.5);
+    filter: brightness(1.1);
 }
 
 .chopeGer {
     width: 58px;
     padding: 9px;
-    filter: brightness(1.5);
+    filter: brightness(1.1);
+}
+
+.header__menu__pages {
+    display: flex;
+    align-items: center;
 }
 
 .header__menu__pages ul {
     list-style-type: none;
     display: flex;
+    padding: 0;
 }
 
 .header__menu__pages li {
+    position: relative;
+    height: 20px;
+    overflow: hidden;
     margin: 10px;
     cursor: pointer;
-    color: rgb(103, 103, 103);
+    width: fit-content;
+}
+
+.header__menu__pages a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header__menu__pages li span {
+    display: block;
+    transition: transform 0.4s ease;
+    text-align: center;
+}
+
+.header__menu__pages li::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+}
+
+.header__menu__pages li:hover span {
+    transform: translateY(-100%);
+}
+
+.header__menu__pages li:hover::after {
+    transform: translateY(0%);
+}
+
+.header__menu__pages i {
+    color: rgba(0, 0, 0, .8);
+    transition-duration: .4s;
+    transition-timing-function: ease-in-out;
+}
+
+.header__menu__pages i:hover {
+    color: black;
+    cursor: pointer;
+    transform: scale(1.5) rotate(360deg);
+}
+
+/*--------- FORM searchBar ---------*/
+
+.header__searchBar input {
+    outline: none;
+    height: 70px;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.header__searchBar {
+    width: 60%;
+    margin: auto;
+}
+
+.header__searchBar form {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+.header__searchBar form button {
+    height: 70px;
+    width: 79px;
+    font-size: 21px;
+    color: rgba(0, 0, 0, .8);
+    cursor:pointer;
 }
