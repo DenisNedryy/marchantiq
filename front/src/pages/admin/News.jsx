@@ -1,7 +1,8 @@
-export function Auth() {
+export function News() {
+
     return (
         <>
-            Auth
+            News
         </>
     );
 }

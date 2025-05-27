@@ -6,10 +6,13 @@ const jwt = require("jsonwebtoken");
 const fs = require('fs').promises;
 
 
-exports.testUser = async (req, res, next)=>{
-res.status(200).json({msg: "test get users = OK"});
+exports.isUserConnected = async (req, res, next) => {
+    try {
+        if (req.auth.userId) return res.status(200).json({ isUser: true });
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
 };
-
 
 exports.signUp = async (req, res, next) => {
     try {
@@ -51,6 +54,7 @@ exports.signUp = async (req, res, next) => {
 };
 
 exports.signIn = async (req, res, next) => {
+    console.log(req.body);
     const { email, password } = req.body;
     if (!email || !password) return res.status(400).json({ msg: "All fields are required" });
 
@@ -75,13 +79,13 @@ exports.signIn = async (req, res, next) => {
     const isProduction = process.env.NODE_ENV === 'production';
 
     res.cookie('authToken', token, {
-        httpOnly: true, 
-        secure: isProduction,   
-        maxAge: 24 * 60 * 60 * 1000, 
+        httpOnly: true,
+        secure: isProduction,
+        maxAge: 24 * 60 * 60 * 1000,
         // sameSite: 'None', // A enlever sur le meme site
         // partitioned: true,
         path: "/"
     });
-    
+
     res.status(200).json({ msg: "Connection sucessful" });
 };

@@ -107,7 +107,7 @@ exports.createItem = async (req, res, next) => {
 
 exports.addImage = async (req, res, next) => {
     try {
-        const item_uuid = req.body.item_uuid;
+        const item_uuid = req.params.uuid;
 
         //Récupération de l'auth
         const [user] = await pool.execute('SELECT * FROM users u WHERE u.id = ?', [req.auth.userId]);
@@ -168,7 +168,6 @@ exports.updateItem = async (req, res, next) => {
         const placeholders = columns.map((cell) => `${cell} = ?`).join(", ");
         values.push(uuid);
 
-        // 'update items set name = ? '
 
         const query = `UPDATE items SET ${placeholders} WHERE uuid = ?`;
 

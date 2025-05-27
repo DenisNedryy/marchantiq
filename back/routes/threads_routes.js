@@ -11,8 +11,4 @@ router.put("/:uuid", auth, uploadItems, threadsCtrl.updateThreadImg);
 router.delete("/:uuid", auth, threadsCtrl.deleteThreads);
 
 
-// get Threads avec news directement
-// put thread
-// delete thread 
-
 module.exports = router; 

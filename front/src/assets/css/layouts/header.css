@@ -6,6 +6,8 @@ header {
 .header__logo {
     background-color: black;
     width: 100%;
+    z-index: 5;
+    position: relative;
 }
 
 .header__logo__content {
@@ -25,6 +27,8 @@ header .header__logo img {
     align-items: center;
     background-color: white;
     border: 1px solid rgb(220, 220, 220);
+    position: relative;
+    z-index: 5;
 }
 
 .logoAntic {
@@ -79,9 +83,9 @@ header .header__logo img {
     text-align: center;
     transform: translateY(100%);
     transition: transform 0.3s ease;
-    font-weight: bold;
+    font-weight: 600;
     color: black;
-    font-size: 14px;
+
 }
 
 .header__menu__pages li:hover span {
@@ -106,15 +110,29 @@ header .header__logo img {
 
 /*--------- FORM searchBar ---------*/
 
+.header__searchBar {
+    background-color: white;
+    padding: 15px;
+    position: absolute;
+    top: 93px;
+    z-index: 4;
+    transform: translateY(-100%);
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    border: 1px solid rgb(220, 220, 220);
+}
+
 .header__searchBar input {
     outline: none;
     height: 70px;
     width: 100%;
     padding-left: 15px;
+    border: 1px solid rgba(0, 0, 0, .1);
 }
 
 .header__searchBar {
-    width: 60%;
+    width: 100%;
     margin: auto;
 }
 
@@ -122,6 +140,8 @@ header .header__logo img {
     display: flex;
     align-items: center;
     margin: 15px;
+    width: 60%;
+    margin: auto;
 }
 
 .header__searchBar form button {
@@ -129,5 +149,6 @@ header .header__logo img {
     width: 79px;
     font-size: 21px;
     color: rgba(0, 0, 0, .8);
-    cursor:pointer;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .1);
 }

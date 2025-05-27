@@ -1,0 +1,52 @@
+@font-face {
+    font-family: german;
+    src: url('../fonts/RoyalVintage.otf');
+}
+
+@font-face {
+    font-family: titres;
+    src: url('../fonts/gobold.otf');
+}
+
+.titre {
+    font-family: german;
+}
+
+.box {
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 700px;
+    padding: 18px;
+}
+
+.box h2 {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: titres;
+    background: linear-gradient(93deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(255, 255, 255, 1) 100%);
+    padding: 5px 15px;
+    color: white;
+    margin-bottom: 15px;
+    animation-name: itComesFromRight;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.btn {
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+    overflow: hidden;
+    transition-duration: 0.4s;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 9px 12px;
+}
+.btn i{
+    margin-right: 15px;
+}

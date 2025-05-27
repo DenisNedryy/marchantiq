@@ -1,17 +1,18 @@
-export function SearchBarHeader({onUpdate}) {
+export function SearchBarHeader({ onUpdate,closeSearchBarMenu }) {
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
         const form = e.target;
         const inputEl = form.elements['searchBar-header'];
         onUpdate(inputEl.value);
         form.reset();
+        closeSearchBarMenu();
     }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="searchBar-header" />
+                <input type="text" name="searchBar-header" placeholder="Rechercher" />
                 <button type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </>
