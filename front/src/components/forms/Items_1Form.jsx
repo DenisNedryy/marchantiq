@@ -1,4 +1,4 @@
-export function Items_1Form({ onUpdateForm }) {
+export function Items_1Form({ onUpdateForm, onUpdateStep }) {
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -11,6 +11,8 @@ export function Items_1Form({ onUpdateForm }) {
             style: form.elements['style'].value,
             matiere: form.elements['matiere'].value,
         }
+        onUpdateForm(data);
+        onUpdateStep((prevState) => prevState + 1);
     }
 
     return (
@@ -39,7 +41,7 @@ export function Items_1Form({ onUpdateForm }) {
                 <label>Matière</label>
                 <input type="text" name="matiere" placeholder="ex: Bronze " />
             </div>
-            <button type="submit">Valider</button>
+            <button type="submit" className="btn">Suivant</button>
         </form>
     );
 }

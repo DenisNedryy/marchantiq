@@ -1,4 +1,4 @@
-export function Items_2Form({ onUpdateForm }) {
+export function Items_2Form({ onUpdateForm, onUpdateStep }) {
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -6,9 +6,11 @@ export function Items_2Form({ onUpdateForm }) {
         const data = {
             name: form.elements['epoque'].value,
             price: form.elements['year'].value,
-            artist: form.elements['categorie'].value,
+            category: form.elements['categorie'].value,
             state: form.elements['description'].value,
         }
+        onUpdateForm(data);
+        onUpdateStep((prevState) => prevState + 1);
     }
 
     return (
@@ -38,8 +40,8 @@ export function Items_2Form({ onUpdateForm }) {
                 <label>Description</label>
                 <textarea name="description"></textarea>
             </div>
-       
-            <button type="submit">Valider</button>
+
+            <button type="submit" className="btn">Suivant</button>
         </form>
     );
 }

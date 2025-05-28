@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export function Items_3Form({ onUpdateForm }) {
-    const [ isNew, setIsNew ] = useState(true);
+export function Items_3Form({ onUpdateForm, onUpdateStep }) {
+    const [isNew, setIsNew] = useState(true);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -13,6 +13,8 @@ export function Items_3Form({ onUpdateForm }) {
             profondeur: form.elements['profondeur'].value,
             isNew: isNew
         }
+        onUpdateForm(data);
+        onUpdateStep((prevState) => prevState + 1);
     }
 
     return (
@@ -35,9 +37,9 @@ export function Items_3Form({ onUpdateForm }) {
             </div>
             <div>
                 <label>Nouveau ?</label>
-                <button type="button" className="btn" onClick={()=>setIsNew(!isNew)}>{isNew ? "Oui" : "Non"}</button>
+                <button type="button" className="btn" onClick={() => setIsNew(!isNew)}>{isNew ? "Oui" : "Non"}</button>
             </div>
-            <button type="submit">Valider</button>
+            <button type="submit" className="btn">Suivant</button>
         </form>
     );
 }

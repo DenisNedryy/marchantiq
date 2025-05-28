@@ -1,6 +1,5 @@
 import { useState } from "react";
 import hawai from "../../assets/pictures/photos/hawai.png";
-import jf from "../../assets/pictures/photos/jf.jpg";
 import { NavLink } from "react-router-dom";
 import { Category } from "./Category";
 import { Items } from "./items/Items.jsx";
@@ -9,13 +8,15 @@ import { News } from "./news/News.jsx";
 export function Admin() {
 
     const [view, setView] = useState("category"); // 'category' | 'items' | 'news'
-    const [itemStep, setItemStep] = useState(1);
+    const [itemStep, setItemStep] = useState(2);
 
     const handleSelect = (section) => {
         setView(section);
         if (section === "items") {
             setItemStep(2); // reset to step 1
         }else if(section === "news"){
+            setItemStep(2);
+        }else if(section ==="category"){
             setItemStep(2);
         }
     };
