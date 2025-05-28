@@ -1,0 +1,45 @@
+export function Items_2Form({ onUpdateForm }) {
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            name: form.elements['epoque'].value,
+            price: form.elements['year'].value,
+            artist: form.elements['categorie'].value,
+            state: form.elements['description'].value,
+        }
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className="createForm">
+            <div>
+                <label>Epoque</label>
+                <input type="text" name="epoque" placeholder="ex: Antiquité" />
+            </div>
+            <div>
+                <label>Année</label>
+                <input type="text" name="year" placeholder="ex: 200 ans avant JC" />
+            </div>
+            <div>
+                <label for="categorie">Catégorie :</label>
+                <select name="category" id="categorie">
+                    <option value="mobilier">Mobilier</option>
+                    <option value="bibelot">Bibelot</option>
+                    <option value="militaria">Militaria</option>
+                    <option value="livre">Livre</option>
+                    <option value="numismatique">Numismatique</option>
+                    <option value="tableau">Tableau</option>
+                    <option value="carte-postale">Carte postale</option>
+                    <option value="divers">Divers</option>
+                </select>
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea name="description"></textarea>
+            </div>
+       
+            <button type="submit">Valider</button>
+        </form>
+    );
+}

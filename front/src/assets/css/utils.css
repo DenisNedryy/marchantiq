@@ -47,6 +47,11 @@
     text-transform: capitalize;
     padding: 9px 12px;
 }
-.btn i{
+
+.btn i {
     margin-right: 15px;
+}
+
+.bold {
+    font-weight: 600;
 }
