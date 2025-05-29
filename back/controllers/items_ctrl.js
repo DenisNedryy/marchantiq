@@ -59,6 +59,8 @@ exports.createItem = async (req, res, next) => {
         // Récupération des données
         const { name, price, artist, state, matiere, longeur, largeur, hauteur, diam, profondeur, style, epoque, year, category, description, isNew } = req.body;
 
+        console.log(req.body);
+
         // Vérification des champs nécessaires
         if (!name || !price || !category) {
             return res.status(400).json({ msg: "name, price, category sont obligatoires" });

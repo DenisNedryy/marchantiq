@@ -14,10 +14,10 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use(cors({
-    origin: `http://127.0.0.1:3000`, 
+    origin: `http://127.0.0.1:3000`, // Assure-toi que l'origin du frontend est correctement spécifié
     methods: "GET, POST, PUT, DELETE",
     allowedHeaders: "Content-Type, Authorization",
-    credentials: true,  
+    credentials: true,  // Permet l'envoi des cookies  
 }));
 
 app.use("/api/auth", userRoute);
