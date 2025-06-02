@@ -1,8 +1,11 @@
 import { createNews } from "../../services/news";
+import { useNavigate } from "react-router-dom";
 
-export function News_1Form({ onUpdateForm, onUpdateStep, onUpdateNewsUuid }) { 
+export function News_1Form({ onUpdateForm, onUpdateStep, onUpdateNewsUuid }) {
 
-    function handleSubmit(e) { 
+    const navigate = useNavigate();
+
+    function handleSubmit(e) {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData();
@@ -11,13 +14,14 @@ export function News_1Form({ onUpdateForm, onUpdateStep, onUpdateNewsUuid }) {
         formData.append("category", form.elements['category'].value);
         formData.append("description", form.elements['description'].value);
         createMyNews(formData);
-        onUpdateForm(formData);
-        onUpdateStep((prevState) => prevState + 1)
     }
 
-    async function createMyNews(data) {
-        const res = await createNews(data); 
+    async function createMyNews(data) { 
+        const res = await createNews(data);
         console.log(res);
+        const uuid = res.uuid;
+        onUpdateStep((prevState) => prevState + 1);
+        navigate(`/newsCorner/news?id=${uuid}`);
     }
 
     return (

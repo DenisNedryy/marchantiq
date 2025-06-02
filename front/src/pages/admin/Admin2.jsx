@@ -5,14 +5,11 @@ export function Admin2() {
 
     const [newsStep, setNewsStep] = useState(1);
 
-
-
     return (
         <>
             <div className="box">
                 <h2>Ajouter un article</h2>
-
-                {/* <News step={newsStep} setStep={setNewsStep} /> */}
+                <News step={newsStep} setStep={setNewsStep} /> 
             </div>
         </>
     );

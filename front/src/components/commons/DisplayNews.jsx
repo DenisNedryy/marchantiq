@@ -5,7 +5,7 @@ export function DisplayNews({ data }) {
 
     return (
         <div className="displayNews">
-            {data.map((news, index) => (
+            {[...data].reverse().map((news, index) => (
                 <div key={index} className="displayNews__container" data-id={news.uuid}>
                     <div className="displayNews__container__img">
                         <img src={`${HOST}/api/images/news/${news.img_url}`} />

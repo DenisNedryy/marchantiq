@@ -53,7 +53,7 @@ export function NewsCorner() {
             <div className="box">
                 <h2>Le coin des collectionneurs</h2>
                 <CategoryForm onUpdateCategory={setCategory} />
-                {state.isConnected && <NavLink to="/admin/articles"><button className="btn">Créer un article</button></NavLink>}
+                {state.isConnected && <NavLink to="/admin/addArticles"><button className="btn">Créer un article</button></NavLink>}
                 {news && news.length !== 0 ? (<DisplayNews data={news} />) : (<p style={{ marginTop: "50px" }}>Aucun article n’a été créé pour le moment.</p>)}
             </div>
         </div>

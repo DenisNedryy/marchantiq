@@ -41,7 +41,7 @@ exports.createThreads = async (req, res, next) => {
         if (news.length === 0) throw new Error("News introuvable");
         await pool.execute("INSERT INTO threads (uuid, news_uuid, sous_titre, description) VALUES(?, ?, ?, ?)", [uuid, news[0].uuid, sous_titre, description]);
 
-        return res.status(201).json({ msg: "Thread ajouté !" });
+        return res.status(201).json({ msg: "Thread ajouté !", uuid: uuid });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

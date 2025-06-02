@@ -81,7 +81,16 @@
     word-break: break-all;
 }
 
+.btn-updateNews{
+    position:absolute;
+    top:0px;
+    right: 0px;
+}
+
 /*---- threads ----*/
+.btn-createThread{
+    margin: 15px;
+}
 .actuality__threads {
     display: flex;
     flex-direction: column;

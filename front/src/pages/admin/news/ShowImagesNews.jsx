@@ -7,15 +7,15 @@ export function ShowImagesNews({ onUpdate, uuid }) {
 
     useEffect(() => {
         getMyItem();
-    }, [onUpdate]);
+    }, [onUpdate]); 
 
     async function getMyItem() {
         const res = await getOneItem(uuid);
         console.log(res);
-        setItem(res.item);
+        setItem(res.item); 
     }
 
-    if (!item) return <p>Chargement...</p>; 
+    if (!item) return <p>Chargement...</p>;  
 
     return (
         <div className="showImages">
