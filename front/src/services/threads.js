@@ -1,8 +1,8 @@
 import { HOST } from "../host/host.js";
 
-export async function getItems() {
+export async function getThreads() {
     try {
-        const preRes = await fetch(`${HOST}/api/items`, {
+        const preRes = await fetch(`${HOST}/api/threads`, {
             method: "GET",
             headers: {
                 'Content-Type': "application/json"
@@ -16,9 +16,9 @@ export async function getItems() {
     }
 };
 
-export async function getOneItem(uuid) {
+export async function getThreadsByNews(threads_uuid) {
     try {
-        const preRes = await fetch(`${HOST}/api/items/${uuid}`, {
+        const preRes = await fetch(`${HOST}/api/threads/oneThread/${threads_uuid}`, {
             method: "GET",
             headers: {
                 'Content-Type': "application/json"
@@ -32,11 +32,43 @@ export async function getOneItem(uuid) {
     }
 };
 
-
-export async function createItem(data) {
+export async function createThreads(newsUuid, data) {
     try {
-        const preRes = await fetch(`${HOST}/api/items`, {
+        const preRes = await fetch(`${HOST}/api/threads/${newsUuid}`, {
             method: "POST",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(data),
+            credentials: "include",
+        });
+        const res = await preRes.json();
+        return res;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export async function createThreadImg(threads_uuid, data) {
+    try {
+        const preRes = await fetch(`${HOST}/api/threads/addImg/${threads_uuid}`, {
+            method: "POST",
+            headers: {
+            },
+            credentials: "include",
+            body: data
+        });
+        const res = await preRes.json();
+        return res;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export async function updateThreads(threads_uuid, data) {
+    try {
+        const preRes = await fetch(`${HOST}/api/threads/updateThread/${threads_uuid}`, {
+            method: "PUT",
             headers: {
                 'Content-Type': "application/json"
             },
@@ -51,31 +83,14 @@ export async function createItem(data) {
 };
 
 
-export async function addImage(data, uuid) {
+export async function updateThreadImg(threads_uuid,data) {
     try {
-        const preRes = await fetch(`${HOST}/api/items/images/${uuid}`, {
-            method: "POST",
-            headers: {
-            },
-            credentials: "include", 
-            body: data
-        });
-        const res = await preRes.json();
-        return res;
-    } catch (err) {
-        console.error(err);
-    }
-};
-
-export async function updateItem(uuid, data) {
-    try {
-        const preRes = await fetch(`${HOST}/api/items/${uuid}`, {
+        const preRes = await fetch(`${HOST}/api/threads/updateThreadImg/${threads_uuid}`, {
             method: "PUT",
             headers: {
-                'Content-Type': "application/json"
             },
             credentials: "include",
-            body: data
+            body: data,
         });
         const res = await preRes.json();
         return res;
@@ -84,29 +99,11 @@ export async function updateItem(uuid, data) {
     }
 };
 
-export async function updateItemImage(uuid, imgUuid, data) {
+export async function deleteThread(threads_uuid) {
     try {
-        const preRes = await fetch(`${HOST}/api/items/images${uuid}/${imgUuid}`, {
-            method: "PUT",
-            headers: {
-                'Content-Type': "application/json"
-            },
-            credentials: "include",
-            body: data
-        });
-        const res = await preRes.json();
-        return res;
-    } catch (err) {
-        console.error(err);
-    }
-};
-
-export async function deleteItem(uuid) {
-    try {
-        const preRes = await fetch(`${HOST}/api/items/${uuid}`, {
+        const preRes = await fetch(`${HOST}/api/threads/deleteThread/${threads_uuid}`, {
             method: "DELETE",
             headers: {
-                'Content-Type': "application/json"
             },
             credentials: "include",
         });
@@ -117,15 +114,13 @@ export async function deleteItem(uuid) {
     }
 };
 
-export async function deleteItemImg(uuid, imgUuid) {
+export async function deleteThreadImg(threadsImg_uuid) {
     try {
-        const preRes = await fetch(`${HOST}/api/items/images/${uuid}/${imgUuid}`, {
+        const preRes = await fetch(`${HOST}/api/threads/deleteThread/${threadsImg_uuid}`, {
             method: "DELETE",
             headers: {
-                'Content-Type': "application/json"
             },
             credentials: "include",
-            body: data
         });
         const res = await preRes.json();
         return res;

@@ -9,8 +9,8 @@ export function Items_1Form({ onUpdateForm, onUpdateStep }) {
             artist: form.elements['artist'].value,
             state: form.elements['state'].value,
             style: form.elements['style'].value,
-            matiere: form.elements['matiere'].value,
-        }
+            matiere: form.elements['matiere'].value, 
+        };
         onUpdateForm(data);
         onUpdateStep((prevState) => prevState + 1);
     }

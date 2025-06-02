@@ -21,6 +21,5 @@ CREATE TABLE items (
     ),
     description TEXT,
     isNew BOOLEAN DEFAULT FALSE,
-    img_url VARCHAR(500),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;

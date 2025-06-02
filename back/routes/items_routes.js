@@ -11,6 +11,6 @@ router.post("/images/:uuid", auth, uploadItems, itemsCtrl.addImage);
 router.put("/:uuid", auth, itemsCtrl.updateItem);
 router.put("/images/:uuid/:imgUuid", auth, uploadItems, itemsCtrl.updateItemImage);
 router.delete("/:uuid", auth, itemsCtrl.deleteItem);
-router.delete("/images/:uuid/:imgUuid", itemsCtrl.deleteItemImg);
+router.delete("/images/:uuid/:imgUuid", auth, itemsCtrl.deleteItemImg);
 
-module.exports = router;
+module.exports = router; 

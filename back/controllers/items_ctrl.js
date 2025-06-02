@@ -19,10 +19,14 @@ exports.getItems = async (req, res, next) => {
             itemIds
         );
 
+
         // Associe les images à chaque item
         const itemsWithImages = items.map(item => {
-            item.images = images.filter(image => image.item_id === item.id);
-            return item;
+            if(!item.img_url) item.img_url=[];
+
+            const imagesArr = images.filter((img) => img.item_id === item.id);
+            item.img_url = imagesArr;
+            return item
         });
 
         return res.status(200).json({ items: itemsWithImages });
@@ -46,9 +50,9 @@ exports.getOneItem = async (req, res, next) => {
         const [images] = await pool.execute("SELECT * FROM items_images WHERE item_id = ? ORDER BY position ASC", [item.id]);
 
         // Ajouter les images à l'objet item
-        item.images = images;
+        item.img_url = images;
 
-        return res.status(200).json({ items: item });
+        return res.status(200).json({ item: item });
     } catch (err) {
         return res.status(500).json({ error: err });
     }
@@ -58,8 +62,6 @@ exports.createItem = async (req, res, next) => {
     try {
         // Récupération des données
         const { name, price, artist, state, matiere, longeur, largeur, hauteur, diam, profondeur, style, epoque, year, category, description, isNew } = req.body;
-
-        console.log(req.body);
 
         // Vérification des champs nécessaires
         if (!name || !price || !category) {
@@ -99,7 +101,7 @@ exports.createItem = async (req, res, next) => {
         await pool.execute(query, values);
 
         // Réponse de succès
-        res.status(201).json({ msg: "Item created successfully" });
+        res.status(201).json({ msg: "Item created successfully", uuid: itemData.uuid });
 
     } catch (err) {
         console.error(err);
@@ -123,7 +125,7 @@ exports.addImage = async (req, res, next) => {
         // crééer une uuid  pour le item_images
         const uuid = uuidv4();
 
-        await pool.execute("INSERT INTO items_images(uuid, item_id, image_url) VALUES(?, ?, ?)", [uuid, item[0].id, fileName]);
+        await pool.execute("INSERT INTO items_images(uuid, item_id, img_url) VALUES(?, ?, ?)", [uuid, item[0].id, fileName]);
 
         res.status(201).json({ msg: "image créé" });
 
@@ -223,8 +225,8 @@ exports.updateItemImage = async (req, res, next) => {
 exports.deleteItem = async (req, res, next) => {
     try {
         const uuid = req.params.uuid;
-        await pool.execute("DELETE FROM items WHERE uuid = ?",[uuid]);
-        res.status(200).json({msg: "item delete"})
+        await pool.execute("DELETE FROM items WHERE uuid = ?", [uuid]);
+        res.status(200).json({ msg: "item delete" })
 
     } catch (err) {
         return res.status(500).json({ erreur: err });
@@ -238,20 +240,20 @@ exports.deleteItemImg = async (req, res, next) => {
 
         const [items] = await pool.execute("SELECT items WhERE uuid = ?", [uuid]);
         const item = items[0];
-        if(!item) return res.status(404).json({msg: "Item introuvable"});
+        if (!item) return res.status(404).json({ msg: "Item introuvable" });
 
         const itemImg = await pool.execute("SELECT items_imgs WHERE uuid = ?", [uuid]);
-           // fs l'image
-          try {
-                await fs.unlink(`uploads/pictures/items/${itemImg.image_url}`);
-            } catch (err) {
-                console.error("Erreur lors de la suppression de l'ancienne image:", err);
-                return res.status(500).json({ msg: "Error deleting old image", error: err });
-            }
-        await pool.execute("DELETE FROM items_images WHERE item_id = ? && uuid = ?",[item.id, imgUuid]);
+        // fs l'image
+        try {
+            await fs.unlink(`uploads/pictures/items/${itemImg.image_url}`);
+        } catch (err) {
+            console.error("Erreur lors de la suppression de l'ancienne image:", err);
+            return res.status(500).json({ msg: "Error deleting old image", error: err });
+        }
+        await pool.execute("DELETE FROM items_images WHERE item_id = ? && uuid = ?", [item.id, imgUuid]);
 
-     
-        res.status(200).json({msg: "Image supprimée"});
+
+        res.status(200).json({ msg: "Image supprimée" });
     } catch (err) {
         return res.status(500).json({ erreur: err });
     }

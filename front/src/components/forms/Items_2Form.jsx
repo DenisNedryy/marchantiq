@@ -4,13 +4,13 @@ export function Items_2Form({ onUpdateForm, onUpdateStep }) {
         e.preventDefault();
         const form = e.target;
         const data = {
-            name: form.elements['epoque'].value,
-            price: form.elements['year'].value,
+            epoque: form.elements['epoque'].value,
+            year: form.elements['year'].value,
             category: form.elements['categorie'].value,
-            state: form.elements['description'].value,
+            description: form.elements['description'].value,
         }
         onUpdateForm(data);
-        onUpdateStep((prevState) => prevState + 1);
+        onUpdateStep((prevState) => prevState + 1); 
     }
 
     return (

@@ -6,47 +6,55 @@ import { Items_2Form } from "../../../components/forms/Items_2Form";
 import { Items_3Form } from "../../../components/forms/Items_3Form";
 import { Items_4Form } from "../../../components/forms/Items_4Form";
 import { useState, useEffect } from "react";
+import { createItem } from "../../../services/items";
+import { ShowImages } from "./ShowImages";
+
 
 export function Items({ step, setStep }) {
 
     const [data, setData] = useState({});
+    const [itemUuid, setItemUuid] = useState("");
     const [form1, setForm1] = useState({});
     const [form2, setForm2] = useState({});
     const [form3, setForm3] = useState({});
     const [form4, setForm4] = useState({});
 
+    useEffect(() => {
+        if (Object.keys(form3).length !== 0) { 
+            createMyItem();
+        }
+    }, [form3]);
+
+
+    async function createMyItem() {
+        const mergedForms = { ...form1, ...form2, ...form3 };
+        const res = await createItem(mergedForms);
+        if (res && res.uuid) setItemUuid(res.uuid);
+    }
 
 
     return (
         <>
             <div class="steps">
-                {console.log(form1)}
-                {console.log(form2)}
-                {console.log(form3)}
-                {console.log(form4)}
-
                 <i className="fa-solid fa-check" />
-                <p>Etape <span className="bold">{step}</span> sur <span className="bold">5</span></p>
-                {step === 2 && <h3>Entrez les détails de l’article</h3>}
-                {step === 3 && <h3>Entrez les détails de l’article</h3>}
-                {step === 4 && <h3>Entrez les détails de l’article</h3>}
-                {step === 5 && <h3>Ajouter des images</h3>}
+                <p>Etape <span className="bold">{step}</span> sur <span className="bold">4</span></p>
+                {step === 1 && <h3>Entrez les détails de l’objet</h3>}
+                {step === 2 && <h3>Entrez les détails de l'objet</h3>}
+                {step === 3 && <h3>Entrez les détails de l'objet</h3>}
+                {step === 4 && <h3>Ajouter des images</h3>}
 
-                {/* <div style={{ marginTop: "1rem" }}>
-                    {step > 1 && <button onClick={() => setStep(step - 1)} className="btn">Précédent</button>}
-                    {step < 5 && <button onClick={() => setStep(step + 1)} className="btn">Suivant</button>}
-                </div> */}
             </div>
 
-            {step === 2 && <Items_1Form onUpdateForm={setForm1} onUpdateStep={setStep}/>}
-            {step === 3 && <Items_2Form onUpdateForm={setForm2} onUpdateStep={setStep}/>}
-            {step === 4 && <Items_3Form onUpdateForm={setForm3} onUpdateStep={setStep}/>}
-            {step === 5 && <Items_4Form onUpdateForm={setForm4} onUpdateStep={setStep}/>}
+            {step === 1 && <Items_1Form onUpdateForm={setForm1} onUpdateStep={setStep} />}
+            {step === 2 && <Items_2Form onUpdateForm={setForm2} onUpdateStep={setStep} />}
+            {step === 3 && <Items_3Form onUpdateForm={setForm3} onUpdateStep={setStep} />}
+            {step === 4 && (
+                <>
+                    <ShowImages onUpdate={form4} uuid={itemUuid}/>
+                    <Items_4Form onUpdateForm={setForm4} uuid={itemUuid} />
+                </>
+            )}
 
-            {/* <div style={{ marginTop: "1rem",width:"60%",margin:"auto" }}>
-                {step > 1 && <button onClick={() => setStep(step - 1)} className="btn">Précédent</button>}
-                {step < 5 && <button onClick={() => setStep(step + 1)} className="btn">Suivant</button>}
-            </div> */}
         </>
     );
 }

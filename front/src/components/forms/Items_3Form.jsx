@@ -14,7 +14,7 @@ export function Items_3Form({ onUpdateForm, onUpdateStep }) {
             isNew: isNew
         }
         onUpdateForm(data);
-        onUpdateStep((prevState) => prevState + 1);
+        onUpdateStep((prevState) => prevState + 1); 
     }
 
     return (

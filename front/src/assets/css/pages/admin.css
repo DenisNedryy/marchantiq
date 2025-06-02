@@ -39,9 +39,30 @@
     display: flex;
     flex-direction: column;
 }
-.createForm button[type='submit']{
+
+.createForm button[type='submit'] {
     align-self: center;
 }
- label{
-    margin:10px 0px 5px 0px;
+
+label {
+    margin: 10px 0px 5px 0px;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: initial;
+}
+
+/* images items */
+.showImages {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 18px auto;
+}
+
+.showImages img {
+    width: 60px;
+    height: 60px;
+    object-fit: fill;
 }

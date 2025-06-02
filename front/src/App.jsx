@@ -11,6 +11,8 @@ import { Categories } from "./components/layouts/Categories.jsx";
 import { useAuth } from "./contexts/AuthContext.jsx";
 import { isUserConnected } from "./services/users.js";
 import { Admin } from "./pages/admin/Admin.jsx";
+import { Admin2 } from "./pages/admin/Admin2.jsx";
+import { News_focus } from "./pages/News_focus.jsx";
 
 function App() {
 
@@ -40,9 +42,11 @@ function App() {
           <Route path="/" element={<Accueil />} />
           <Route path="/presentation" element={<Presentation />} />
           <Route path="/newsCorner" element={<NewsCorner />} />
+          <Route path="/newsCorner/news" element={<News_focus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<Auth />} />
-          {state.isConnected && <Route path="/admin" element={<Admin />} />}
+          {state.isConnected && <Route path="/admin/addItems" element={<Admin />} />}
+          {state.isConnected && <Route path="/admin/addArticles" element={<Admin2 />} />}
         </Routes>
       </main>
       <Footer />

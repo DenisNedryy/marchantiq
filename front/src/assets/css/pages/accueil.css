@@ -1,0 +1,118 @@
+/* articles  */
+.showCaseArticles {
+    margin-bottom: 30px;
+}
+
+.showCaseArticles__container {
+    position: relative;
+    height: 352px;
+}
+
+.showCaseArticles__container button {
+    position: absolute;
+    z-index: 600;
+    right: 15px;
+    bottom: 25px;
+}
+
+.showCaseArticles__container img {
+    width: 100%;
+    height: 352px;
+    object-fit: cover;
+}
+
+.showCaseArticles__container__textContainer {
+    position: absolute;
+    color: white;
+    z-index: 500;
+    top: 0px;
+    right: 0px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    word-break: break-word;
+    height: 99%;
+    overflow: hidden;
+}
+
+.showCaseArticles__container__textContainer--title {
+    font-size: 19px;
+    font-weight: 600;
+    font-family: titres;
+}
+
+.showCaseArticles__container__textContainer--description {
+    margin-top: 11px;
+}
+
+
+
+/* ----------carrouselle------------ */
+.carrousel {
+    display: flex;
+    position: relative;
+    /* overflow: hidden; */
+    width: 637px;
+}
+
+.carrousel__slides {
+    display: flex;
+}
+
+.carrousel__slides__slide {
+    width: 150px;
+    height: 220px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 0px;
+    margin-right: 12px;
+}
+
+.carrousel__slides__slide img {
+    width: 100%;
+    height: 150px;
+}
+
+.carrousel__slides__slide--name {
+    color: #372215;
+    margin: 13px 0;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.carrousel__slides__slide--price {
+    color: #a58934;
+    margin: 13px 0;
+}
+
+.symbol-euro {
+    position: relative;
+    bottom: 3px;
+    left: 3px;
+}
+
+.fa-angles-left,
+.fa-angles-right {
+    color: white;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    position: absolute;
+    top: 27%;
+    cursor:pointer;
+}
+
+.fa-angles-left {
+    left: 0px;
+}
+
+.fa-angles-right {
+    right: 0px;
+}
