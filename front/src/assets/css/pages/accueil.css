@@ -97,24 +97,37 @@
 .fa-angles-left,
 .fa-angles-right {
     color: white;
-    background-color: red;
+    background-color: rgb(189, 85, 86);
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
+    border-radius: 5px;
     position: absolute;
     top: 27%;
     cursor: pointer;
+    border-left: 2px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 2px solid black;
+}
+
+.fa-angles-left:hover,
+.fa-angles-right:hover {
+    background-color: rgb(155, 76, 82);
 }
 
 .fa-angles-left {
-    left: 0px;
+    left: 5px;
+    -webkit-box-shadow: -4px 5px 15px -5px #000000;
+    box-shadow: -4px 5px 15px -5px #000000;
 }
 
 .fa-angles-right {
-    right: 0px;
+    right: 5px;
+    -webkit-box-shadow: 4px 4px 15px -5px #000000;
+    box-shadow: 4px 4px 15px -5px #000000;
 }
 
 /* ---------------flyers--------------- */
@@ -136,7 +149,7 @@
 .flyers__container .flyer {
     position: relative;
     transition-duration: .4s;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .flyers__container .flyer:hover {

@@ -23,7 +23,7 @@ export function Items_1Form({ onUpdateForm, onUpdateStep }) {
             </div>
             <div>
                 <label>Prix</label>
-                <input type="number" name="price" placeholder="ex: 27€" />
+                <input type="number" name="price" placeholder="ex: 27€" step="0.01"/>
             </div>
             <div>
                 <label>Artiste</label>

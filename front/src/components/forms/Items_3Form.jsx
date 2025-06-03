@@ -7,29 +7,34 @@ export function Items_3Form({ onUpdateForm, onUpdateStep }) {
         e.preventDefault();
         const form = e.target;
         const data = {
-            longuer: form.elements['longuer'].value,
+            longeur: form.elements['longeur'].value,
             largeur: form.elements['largeur'].value,
-            dia: form.elements['dia'].value,
+            hauteur: form.elements['hauteur'].value,
+            diam: form.elements['diam'].value,
             profondeur: form.elements['profondeur'].value,
             isNew: isNew
         }
         onUpdateForm(data);
-        onUpdateStep((prevState) => prevState + 1); 
+        onUpdateStep((prevState) => prevState + 1);
     }
 
     return (
         <form onSubmit={handleSubmit} className="createForm">
             <div>
                 <label>Longeur</label>
-                <input type="text" name="longuer" placeholder="ex: 23cm" />
+                <input type="text" name="longeur" placeholder="ex: 23cm" />
             </div>
             <div>
                 <label>Largeur</label>
                 <input type="text" name="largeur" placeholder="ex: 4cm" />
             </div>
             <div>
+                <label>hauteur</label>
+                <input type="text" name="hauteur" placeholder="ex: 4cm" />
+            </div>
+            <div>
                 <label>Diamètre</label>
-                <input type="text" name="dia" placeholder="ex: 12cm" />
+                <input type="text" name="diam" placeholder="ex: 12cm" />
             </div>
             <div>
                 <label>Profondeur</label>

@@ -26,6 +26,7 @@ export function Items({ step, setStep }) {
 
     async function createMyItem() {
         const mergedForms = { ...form1, ...form2, ...form3 };
+        console.log(mergedForms);
         const res = await createItem(mergedForms);
         if (res && res.uuid) setItemUuid(res.uuid);
     }
