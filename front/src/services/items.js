@@ -32,6 +32,24 @@ export async function getOneItem(uuid) {
     }
 };
 
+export async function getItemsByCategory(category) {
+    try {
+        const preRes = await fetch(`${HOST}/api/items/byCategory/${category}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            credentials: "include",
+        });
+        const res = await preRes.json();
+        return res;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+
+
 
 export async function createItem(data) {
     try {
@@ -57,7 +75,7 @@ export async function addImage(data, uuid) {
             method: "POST",
             headers: {
             },
-            credentials: "include", 
+            credentials: "include",
             body: data
         });
         const res = await preRes.json();

@@ -22,7 +22,7 @@ exports.getItems = async (req, res, next) => {
 
         // Associe les images à chaque item
         const itemsWithImages = items.map(item => {
-            if(!item.img_url) item.img_url=[];
+            if (!item.img_url) item.img_url = [];
 
             const imagesArr = images.filter((img) => img.item_id === item.id);
             item.img_url = imagesArr;
@@ -36,6 +36,36 @@ exports.getItems = async (req, res, next) => {
     }
 };
 
+exports.getItemsByCategory = async (req, res, next) => {
+    try {
+        const category = req.params.category;
+
+        const [items] = await pool.execute("SELECT * FROM items WHERE category = ?", [category]);
+        if (items.length === 0) throw new Error("Aucun items dans cette catégorie");
+
+        // Récupère toutes les images associées aux items
+        const itemIds = items.map(item => item.id);
+        const [images] = await pool.execute(
+            `SELECT * FROM items_images WHERE item_id IN (${itemIds.map(() => '?').join(',')}) ORDER BY position ASC`,
+            itemIds
+        );
+
+
+        // Associe les images à chaque item
+        const itemsWithImages = items.map(item => {
+            if (!item.img_url) item.img_url = [];
+
+            const imagesArr = images.filter((img) => img.item_id === item.id);
+            item.images = imagesArr;
+            return item
+        });
+
+
+        res.status(200).json({ items: itemsWithImages });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
 
 exports.getOneItem = async (req, res, next) => {
     try {

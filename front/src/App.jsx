@@ -13,6 +13,8 @@ import { isUserConnected } from "./services/users.js";
 import { Admin } from "./pages/admin/Admin.jsx";
 import { Admin2 } from "./pages/admin/Admin2.jsx";
 import { News_focus } from "./pages/News_focus.jsx";
+import { Items } from "./pages/items/Items.jsx";
+import { ItemsDetails } from "./pages/items/ItemsDetails.jsx";
 
 function App() {
 
@@ -47,6 +49,8 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           {state.isConnected && <Route path="/admin/addItems" element={<Admin />} />}
           {state.isConnected && <Route path="/admin/addArticles" element={<Admin2 />} />}
+          <Route path="/objets/:category" element={<Items />} />
+          <Route path="/objets/:category/objet-details/:uuid" element={<ItemsDetails />} />
         </Routes>
       </main>
       <Footer />

@@ -28,7 +28,6 @@ export function ShowCase_articles() {
         getMyNews();
         async function getMyNews() {
             const res = await getNews();
-            console.log(res);
             if (res && res.news) {
                 setNews(res.news[res.news.length - 1]);
             }

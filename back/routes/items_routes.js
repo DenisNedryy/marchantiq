@@ -6,6 +6,7 @@ const { uploadItems } = require("../middlewares/multer-config");
 
 router.get("/", itemsCtrl.getItems);
 router.get("/:uuid", itemsCtrl.getOneItem);
+router.get("/byCategory/:category", itemsCtrl.getItemsByCategory);
 router.post("/", auth, itemsCtrl.createItem);
 router.post("/images/:uuid", auth, uploadItems, itemsCtrl.addImage);
 router.put("/:uuid", auth, itemsCtrl.updateItem);

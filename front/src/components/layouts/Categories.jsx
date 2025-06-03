@@ -6,6 +6,7 @@ import numismatique from "../../assets/pictures/icon/categories/numismatique.png
 import tableaux from "../../assets/pictures/icon/categories/chevalet.png";
 import poste from "../../assets/pictures/icon/categories/poste.png";
 import divers from "../../assets/pictures/icon/categories/divers.png";
+import { NavLink, useParams } from "react-router-dom";
 
 export function Categories() {
 
@@ -14,14 +15,14 @@ export function Categories() {
         <div className="categories">
             <h2>Categories</h2>
             <ul>
-                <li><img src={mobilier} />Mobilier</li>
-                <li><img src={bibelots} />Bibelots</li>
-                <li><img src={militaria} />Militaria</li>
-                <li><img src={livre} />Livres</li>
-                <li><img src={numismatique} />Numismatiques</li>
-                <li><img src={tableaux} />Tableaux</li>
-                <li><img src={poste} />Cartes postales</li>
-                <li><img src={divers} />Divers</li>
+                <NavLink to="/objets/mobilier"><li>Mobilier</li></NavLink>
+                <NavLink to="/objets/bibelots"><li>Bibelots</li></NavLink>
+                <NavLink to="/objets/militaria"><li>Militaria</li></NavLink>
+                <NavLink to="/objets/livres"><li>Livres</li></NavLink>
+                <NavLink to="/objets/numismatiques"><li>Numismatiques</li></NavLink>
+                <NavLink to="/objets/tableaux"><li>Tableaux</li></NavLink>
+                <NavLink to="/objets/cartes-postales"><li>Cartes postales</li></NavLink>
+                <NavLink to="/objets/divers"><li>Divers</li></NavLink>
             </ul>
         </div>
 

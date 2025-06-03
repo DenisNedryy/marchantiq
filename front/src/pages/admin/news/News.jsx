@@ -1,6 +1,4 @@
-import jf from "../../../assets/pictures/photos/jf.jpg";
-import suisse from "../../../assets/pictures/photos/suisse.png";
-import hawai from "../../../assets/pictures/photos/hawai.png";
+
 import { News_1Form } from "../../../components/forms/News_1Form";
 import { News_2Form } from "../../../components/forms/News_2Form";
 import { News_3Form } from "../../../components/forms/News_3Form";

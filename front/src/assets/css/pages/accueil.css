@@ -51,7 +51,7 @@
 .carrousel {
     display: flex;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
     width: 637px;
 }
 
@@ -60,8 +60,8 @@
 }
 
 .carrousel__slides__slide {
-    width: 150px;
-    height: 220px;
+    width: 205px;
+    height: 330px;
     font-size: 12px;
     font-weight: bold;
     text-align: left;
@@ -71,7 +71,7 @@
 
 .carrousel__slides__slide img {
     width: 100%;
-    height: 150px;
+    height: 266px;
 }
 
 .carrousel__slides__slide--name {
@@ -106,7 +106,7 @@
     border-radius: 3px;
     position: absolute;
     top: 27%;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .fa-angles-left {
@@ -115,4 +115,52 @@
 
 .fa-angles-right {
     right: 0px;
+}
+
+/* ---------------flyers--------------- */
+.flyers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.flyers img {
+    margin: 15px 0px;
+    width: 100%;
+    height: 200px;
+    border-radius: 25px;
+}
+
+.flyers__container .flyer {
+    position: relative;
+    transition-duration: .4s;
+    cursor:pointer;
+}
+
+.flyers__container .flyer:hover {
+    transform: translateX(15px);
+}
+
+.flyers__container .para_1 {
+    position: absolute;
+    top: 28%;
+    left: 18%;
+    color: #090808;
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.flyers__container .para_2 {
+    position: absolute;
+    top: 47%;
+    left: 34%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 19px;
+    font-weight: 400;
 }
