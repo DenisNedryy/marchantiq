@@ -65,7 +65,7 @@ export function ItemsDetails() {
                             {item.description && (
                                 <p><span className="bold">Description:</span> {item.description}</p>
                             )}
-                            <NavLink to="/contact"><button className="btn">Me contacter</button></NavLink>
+                            <NavLink to={`/contact/${uuid}`}><button className="btn">Me contacter</button></NavLink>
                         </div>
                         <div className="itemsDetails__img">
                             <Carrousel_mini images={item.img_url}/> 

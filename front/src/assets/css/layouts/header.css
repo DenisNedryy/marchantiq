@@ -61,6 +61,7 @@ header .header__logo img {
     margin: 10px;
     cursor: pointer;
     width: fit-content;
+    font-family:titres;
 }
 
 .header__menu__pages a {

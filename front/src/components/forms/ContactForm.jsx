@@ -1,4 +1,12 @@
-export function ContactForm() {
+import { useState } from "react";
+
+export function ContactForm({ uuid }) {
+
+    const [ objectValue, setObjectValue ] = useState(`Demande de renseignement sur l'item (${uuid})`)
+
+    async function handleChange(e){
+        setObjectValue(e.target.value);
+    }
 
     async function handleSubmit() {
 
@@ -33,7 +41,7 @@ export function ContactForm() {
                 <div className="contactForm__rest">
                     <div>
                         <label>Object du message:</label>
-                        <input type="text" name="objet_message" />
+                        <input type="text" name="objet_message" value={objectValue} onChange={handleChange}/>
                     </div>
                     <div>
                         <label>Message</label>

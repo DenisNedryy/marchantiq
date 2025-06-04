@@ -46,11 +46,12 @@ function App() {
           <Route path="/news" element={<NewsCorner />} />
           <Route path="/news/news-details/:uuid" element={<News_focus />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contact/:uuid" element={<Contact />} />
           <Route path="/auth" element={<Auth />} />
           {state.isConnected && <Route path="/admin/addItems" element={<Admin />} />}
           {state.isConnected && <Route path="/admin/addArticles" element={<Admin2 />} />}
           <Route path="/items/:category" element={<Items />} />
-          <Route path="/items/:category/items-details/:uuid" element={<ItemsDetails />} /> 
+          <Route path="/items/:category/items-details/:uuid" element={<ItemsDetails />} />
         </Routes>
       </main>
       <Footer />

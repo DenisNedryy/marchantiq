@@ -1,7 +1,12 @@
 import marchantiq_logo from "../assets/pictures/logo/marchantiq_logo.png";
 import { ContactForm } from "../components/forms/ContactForm";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export function Contact() {
+
+    const { uuid } = useParams();
+
     return (
         <div className="contact">
             <div className="box">
@@ -40,7 +45,7 @@ export function Contact() {
                     <p className="contact__contact__para">Pour toute demande, merci d’utiliser le formulaire de contact ci-dessous.</p>
                     <p className="contact__contact__addresseEmail">Adresse email nomDuSite : marchais@marchantiq.fr</p>
                 </div>
-                <ContactForm/>
+                <ContactForm uuid={uuid}/>
             </div>
         </div>
     );
