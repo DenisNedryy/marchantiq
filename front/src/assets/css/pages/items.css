@@ -29,13 +29,13 @@
     transform: translateX(25%) translateY(17%) rotate(32deg);
     padding: 5px;
     color: white;
-    right: 0px;
+    right: -7px;
     text-align: center;
-    border: 1px solid #4a4646;
+    border: 1px solid black;
     z-index: 600;
     width: 238px;
-    font-size: 15px;
-    font-family: georgia, times;
+    font-size: 18px;
+    top: 9px;
 }
 
 .items__container__item:hover .items__container__item__text {
@@ -50,7 +50,7 @@
     width: 184px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding-left: 15px;
     padding-bottom: 8px;
     transform: translateY(100%);
     transition-duration: .4s;
@@ -96,12 +96,30 @@
 }
 
 /* ---------carrousel mini------------ */
+.carrouselMini img:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+}
 
 .carrouselMini--preview {
     width: 100%;
     height: 300px;
     object-fit: fill;
-    cursor:pointer;
+    cursor: pointer;
+    animation: myAnim .6s ease 0s 1 normal forwards;
+}
+
+.carrouselMini--previewNinja {
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
+    cursor: pointer;
+    position: absolute;
+}
+
+.carrouselMini__previewContainer {
+    overflow: hidden;
+    position: relative;
 }
 
 .carrouselMini__pictures__view {

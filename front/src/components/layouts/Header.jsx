@@ -50,10 +50,11 @@ export function Header() {
                     <ul>
                         <NavLink to="/"><li data-text="Accueil" style={{ width: "90px" }}><span>Accueil</span></li></NavLink>
                         <NavLink to="/presentation"><li data-text="Presentation" style={{ width: "98px" }}><span>Presentation</span></li></NavLink>
-                        <NavLink to="/newsCorner"><li data-text="Le coin des collectionneurs" style={{ width: "220px" }}><span>Le coin des collectionneurs</span></li></NavLink>
+                        <NavLink to="/news"><li data-text="Le coin des collectionneurs" style={{ width: "220px" }}><span>Le coin des collectionneurs</span></li></NavLink>
                         <NavLink to="/contact"><li data-text="Contact" style={{ width: "85px" }}><span>Contact</span></li></NavLink>
                         <NavLink to="/auth"><li data-text="Auth" style={{ width: "80px" }}><span>Auth</span></li></NavLink>
                         {state.isConnected && <NavLink to="/admin/addItems"><li data-text="Ajouter un objet" style={{ width: "124px" }}><span>Ajouter un objet</span></li></NavLink>}
+                        
                     </ul>
                     <i className="fa-solid fa-magnifying-glass" onClick={displaySearchBarMenu}></i>
                 </div>

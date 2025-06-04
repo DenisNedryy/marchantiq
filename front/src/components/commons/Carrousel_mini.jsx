@@ -6,15 +6,28 @@ export function Carrousel_mini({ images }) {
 
     const [preview, setPreview] = useState(0);
     const slideRef = useRef(null);
+    const bigImgRef = useRef(null);
+    const bigImgNinjaRef = useRef(null);
 
     let ficheWidth = 50; // 205w + 12 margin-right
     let turn = 0;
 
-    function handleShow(e) {
+    async function handleShow(e) {
         const img = e.target;
         const index = img.getAttribute("data-index");
+
         setPreview(index);
+
+        bigImgRef.current.style.animation = "none";
+        void bigImgRef.current.offsetWidth;
+
+        bigImgRef.current.style.animation = "myAnim .6s ease 0s 1 normal forwards";
+
+        setTimeout(() => {
+            bigImgRef.current.style.animation = "";
+        }, 600);
     }
+
 
     function turnLeft() {
         turn--;
@@ -35,7 +48,10 @@ export function Carrousel_mini({ images }) {
 
     return (
         <div className="carrouselMini">
-            <img src={`${HOST}/api/images/items/${images[preview].img_url}`} className="carrouselMini--preview" onClick={showImgFromApi} />
+            <div className="carrouselMini__previewContainer">
+                <img src={`${HOST}/api/images/items/${images[preview>0? preview-1 : preview].img_url}`} className="carrouselMini--previewNinja" onClick={showImgFromApi} ref={bigImgNinjaRef} />
+                <img src={`${HOST}/api/images/items/${images[preview].img_url}`} className="carrouselMini--preview" onClick={showImgFromApi} ref={bigImgRef} />
+            </div>
             <div className="carrouselMini__pictures">
                 <div className="carrouselMini__pictures__view" >
                     <div className="carrouselMini__pictures__view__slides" ref={slideRef}>

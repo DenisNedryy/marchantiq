@@ -8,6 +8,11 @@
     src: url('../fonts/gobold.otf');
 }
 
+@font-face {
+    font-family: survive;
+    src: url('../fonts/LiveNews.ttf');
+}
+
 .titre {
     font-family: german;
 }
@@ -83,6 +88,12 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+label {
+    color: #a58934;
+    text-decoration: none;
+    text-transform:uppercase;
 }
 
 a {

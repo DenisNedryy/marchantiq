@@ -1,8 +1,4 @@
-import flyer_1 from "../../assets/pictures/photos/flyer_1.png";
-import flyer_2 from "../../assets/pictures/photos/flyer_2.png";
-import flyer_3 from "../../assets/pictures/photos/flyer_3.jpg";
-import flyer_4 from "../../assets/pictures/photos/flyer_4.jpg";
-import flyer_5 from "../../assets/pictures/photos/flyer_5.jpg";
+
 import flyer_jf_1 from "../../assets/pictures/photos/flyer_jf_1.png";
 import flyer_jf_2 from "../../assets/pictures/photos/flyer_jf_2.png";
 import { NavLink } from "react-router-dom";

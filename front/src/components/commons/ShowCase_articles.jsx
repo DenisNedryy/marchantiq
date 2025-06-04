@@ -35,7 +35,7 @@ export function ShowCase_articles() {
     }, []);
 
     function truncate(str, n) {
-        return str && str.length > n ? str.substr(0, n) + "..." : str;
+        return str && str.length > n ? str.substr(0, n) + "..." : str; 
     }
 
     return (
@@ -45,7 +45,7 @@ export function ShowCase_articles() {
                     <h2>À la une</h2>
                     <div className="showCaseArticles__container">
                         <img src={`${HOST}/api/images/news/${news.img_url}`} />
-                        <NavLink to={`/newsCorner/news?id=${news.uuid}`}><button className="btn">Visiter</button></NavLink>
+                        <NavLink to={`/news/news-details/${news.uuid}`}><button className="btn">Visiter</button></NavLink>
                         <div className="showCaseArticles__container__textContainer">
                             <p className="showCaseArticles__container__textContainer--title">{news.titre}</p>
                             <p className="showCaseArticles__container__textContainer--description">{truncate(news.description, 235)}</p>

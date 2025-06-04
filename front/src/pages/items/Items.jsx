@@ -8,10 +8,24 @@ export function Items() {
     const { category } = useParams();
     const [items, setItems] = useState([]);
 
+    const categoryMap = {
+        "furniture": "Mobilier",
+        "knick-knacks": "Bibelots",
+        "militaria": "Militaria",
+        "books": "Livres",
+        "numismatics": "Numismatiques",
+        "paintings": "Tableaux",
+        "postcards": "Cartes postales",
+        "miscellaneous": "Divers"
+    };
+
+
+
     useEffect(() => {
         getMyItemsByCategory();
         async function getMyItemsByCategory() {
-            const res = await getItemsByCategory(category);
+            const myCategory = categoryMap[category];
+            const res = await getItemsByCategory(myCategory);
             if (res && res.items) {
                 setItems(res.items)
             } else {
@@ -23,10 +37,10 @@ export function Items() {
     return (
         <div className="items">
             <div className="box">
-                <h2>{category}</h2>
+                <h2>{categoryMap[category]}</h2>
                 <div className="items__container">
                     {items && items.length > 0 && items.map((item, index) => (
-                        <NavLink to={`/objets/${category}/objet-details/${item.uuid}`} key={index} className="items__container__item item-fade-in"
+                        <NavLink to={`/items/${category}/items-details/${item.uuid}`} key={index} className="items__container__item item-fade-in"
                             style={{ animationDelay: `${index * 100}ms` }}>
                             {item.isNew && <div className="items__container__item--banner">Nouveau</div>}
                             <img src={`${HOST}/api/images/items/${item.images[0].img_url}`} />

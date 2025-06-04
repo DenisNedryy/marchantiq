@@ -15,14 +15,15 @@ export function Categories() {
         <div className="categories">
             <h2>Categories</h2>
             <ul>
-                <NavLink to="/objets/mobilier"><li>Mobilier</li></NavLink>
-                <NavLink to="/objets/bibelots"><li>Bibelots</li></NavLink>
-                <NavLink to="/objets/militaria"><li>Militaria</li></NavLink>
-                <NavLink to="/objets/livres"><li>Livres</li></NavLink>
-                <NavLink to="/objets/numismatiques"><li>Numismatiques</li></NavLink>
-                <NavLink to="/objets/tableaux"><li>Tableaux</li></NavLink>
-                <NavLink to="/objets/cartes-postales"><li>Cartes postales</li></NavLink>
-                <NavLink to="/objets/divers"><li>Divers</li></NavLink>
+                <NavLink to="/items/furniture"><li>Mobilier</li></NavLink>
+                <NavLink to="/items/knick-knacks"><li>Bibelots</li></NavLink>
+                <NavLink to="/items/militaria"><li>Militaria</li></NavLink>
+                <NavLink to="/items/books"><li>Livres</li></NavLink>
+                <NavLink to="/items/numismatics"><li>Numismatiques</li></NavLink>
+                <NavLink to="/items/paintings"><li>Tableaux</li></NavLink>
+                <NavLink to="/items/postcards"><li>Cartes postales</li></NavLink>
+                <NavLink to="/items/miscellaneous"><li>Divers</li></NavLink>
+
             </ul>
         </div>
 

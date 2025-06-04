@@ -67,7 +67,7 @@ export function Carrousel({ items }) {
             <div className="carrousel" ref={containerRef}>
                 <div className="carrousel__slides" ref={itemsRef}>
                     {items.map((item, index) => (
-                        <NavLink to={`/objets/${item.category}/objet-details/${item.uuid}`} key={index} className="carrousel__slides__slide">
+                        <NavLink to={`/items/${item.category}/items-details/${item.uuid}`} key={index} className="carrousel__slides__slide">
                             {item && item.img_url.length > 0 && <img src={`${HOST}/api/images/items/${item.img_url[0].img_url}`} />}
                             <p className="carrousel__slides__slide--name">{item.name}</p>
                             <p className="carrousel__slides__slide--price">Prix: {item.price}<span className="symbol-euro">€</span></p>

@@ -42,6 +42,12 @@
 }
 
 /*-------- focus news  --------*/
+.newsFocus img {
+    cursor: pointer;
+}
+.newsFocus img:hover{
+    filter:brightness(0.9);
+}
 
 .actuality__news {
     position: relative;
@@ -62,11 +68,12 @@
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.9);
     border: 4px solid black;
+    z-index:999;
 }
 
 .actuality__news img {
     width: 100%;
-    height: 200px;
+    height: 462px;
     object-fit: cover;
 }
 
@@ -82,16 +89,17 @@
     margin-top: 120px;
 }
 
-.btn-updateNews{
-    position:absolute;
-    top:0px;
+.btn-updateNews {
+    position: absolute;
+    top: 0px;
     right: 0px;
 }
 
 /*---- threads ----*/
-.btn-createThread{
+.btn-createThread {
     margin: 15px;
 }
+
 .actuality__threads {
     display: flex;
     flex-direction: column;

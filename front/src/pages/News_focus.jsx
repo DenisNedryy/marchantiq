@@ -2,27 +2,26 @@ import { useState, useEffect } from "react";
 import { getOneNews } from "../services/news";
 import { HOST } from "../host/host";
 import { useAuth } from "../contexts/AuthContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 export function News_focus() {
 
     const [news, setNews] = useState([]);
     const { state, dispatch } = useAuth();
+    const { uuid } = useParams();
 
     useEffect(() => {
         getMyNews();
         async function getMyNews() {
-            const uuid = getIdParams();
             const res = await getOneNews(uuid);
             if (res) setNews(res.oneNews);
         }
     }, []);
 
-    function getIdParams() {
-        const str = window.location.href;
-        const url = new URL(str);
-        return url.searchParams.get("id");
+    function showImgFromApi(e) {
+        window.open(e.target.src);
     }
+
 
     return (
         <div className="newsFocus">
@@ -32,8 +31,8 @@ export function News_focus() {
                     <div className="actuality">
                         <div className="actuality__news">
                             <p>{news.titre}</p>
-                            <img src={`${HOST}/api/images/news/${news.img_url}`} />
-                            {state.isConnected &&<button className="btn btn-updateNews">Modifier l'article</button>}
+                            <img src={`${HOST}/api/images/news/${news.img_url}`} onClick={showImgFromApi} />
+                            {state.isConnected && <button className="btn btn-updateNews">Modifier l'article</button>}
                         </div>
                         <p className="news-description">{news.description}</p>
                         {/*------threads-----*/}
@@ -48,7 +47,7 @@ export function News_focus() {
                                         {thread.images.length > 1 &&
                                             thread.images.map((cell, index3) => (
                                                 <div key={index3} className="actuality__threads__thread__img__imgETlegend">
-                                                    <img src={`${HOST}/api/images/threads/${cell.img_url}`} />
+                                                    <img src={`${HOST}/api/images/threads/${cell.img_url}`} onClick={showImgFromApi}/>
                                                     <p>{cell.commentaire}</p>
                                                 </div>
                                             ))
@@ -56,7 +55,7 @@ export function News_focus() {
                                         }
                                         {thread.images.length === 1 &&
                                             <div className="actuality__threads__thread__img__imgETlegend" style={{ width: "100%" }}>
-                                                <img src={`${HOST}/api/images/threads/${thread.images[0].img_url}`} style={{ height: "337px", width: "100%" }} />
+                                                <img src={`${HOST}/api/images/threads/${thread.images[0].img_url}`} style={{ height: "437px", width: "100%" }} onClick={showImgFromApi} />
                                                 <p>{thread.images[0].commentaire}</p>
                                             </div>
                                         }

@@ -21,7 +21,7 @@ export function News_1Form({ onUpdateForm, onUpdateStep, onUpdateNewsUuid }) {
         console.log(res);
         const uuid = res.uuid;
         onUpdateStep((prevState) => prevState + 1);
-        navigate(`/newsCorner/news?id=${uuid}`);
+        navigate(`/news/news-details/${uuid}`);
     }
 
     return (

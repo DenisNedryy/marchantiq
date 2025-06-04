@@ -55,6 +55,11 @@
     width: 637px;
 }
 
+.carrousel img:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+}
+
 .carrousel__slides {
     display: flex;
 }

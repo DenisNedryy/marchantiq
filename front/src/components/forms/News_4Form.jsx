@@ -21,7 +21,7 @@ export function News_4Form({ onUpdateForm, onUpdateStep, newsUuid, threadUuid })
     }
 
     function handleFinish() {
-        navigate(`/newsCorner/news?id=${newsUuid}`);
+        navigate(`/news/news-details/${newsUuid}`);
     }
 
     return (
