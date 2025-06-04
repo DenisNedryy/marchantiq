@@ -74,13 +74,59 @@
 
 .itemDetails {
     display: flex;
+    width: 100%;
 }
 
-.carrouselMini__pictures__view__slides{
-    display:flex;
+.itemsDetails__text {
+    width: 50%;
 }
+
+.itemsDetails__img {
+    width: 50%;
+}
+
+.carrouselMini__pictures__view__slides {
+    display: flex;
+}
+
 .carrouselMini__pictures__view__slides__slide img {
     width: 50px;
     height: 50px;
+    cursor: pointer;
+}
+
+/* ---------carrousel mini------------ */
+
+.carrouselMini--preview {
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
     cursor:pointer;
+}
+
+.carrouselMini__pictures__view {
+    width: 250px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.carrouselMini__pictures {
+    position: relative;
+}
+
+.turnLeft,
+.turnRight {
+    position: absolute;
+    top: 2%;
+    cursor: pointer;
+    font-size: 28px;
+    padding: 15px;
+}
+
+.turnLeft {
+    left: 5px;
+}
+
+.turnRight {
+    right: 5px;
 }

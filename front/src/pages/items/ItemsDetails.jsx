@@ -68,7 +68,7 @@ export function ItemsDetails() {
                             <NavLink to="/contact"><button className="btn">Me contacter</button></NavLink>
                         </div>
                         <div className="itemsDetails__img">
-                            <Carrousel_mini images={item.img_url}/>
+                            <Carrousel_mini images={item.img_url}/> 
                         </div>
                     </div>
 
