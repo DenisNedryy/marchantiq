@@ -15,10 +15,12 @@ import { Admin2 } from "./pages/admin/Admin2.jsx";
 import { News_focus } from "./pages/News_focus.jsx";
 import { Items } from "./pages/items/Items.jsx";
 import { ItemsDetails } from "./pages/items/ItemsDetails.jsx";
+import  { useState } from "react";
 
 function App() {
 
   const { state, dispatch } = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     checkAuthStatus();
@@ -31,6 +33,7 @@ function App() {
     } else {
       dispatch({ type: "LOGOUT" });
     }
+    setIsLoading(false);
   }
 
   return (
@@ -54,7 +57,7 @@ function App() {
           <Route path="/items/:category/items-details/:uuid" element={<ItemsDetails />} />
         </Routes>
       </main>
-      <Footer />
+      {!isLoading && <Footer />}
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { DisplayNews } from "../components/commons/DisplayNews";
 import { useAuth } from "../contexts/AuthContext";
 import { NavLink, } from "react-router-dom";
 import { isUserConnected } from "../services/users";
+import { PaginationBottom } from "../components/commons/PaginationBottom";
 
 
 export function NewsCorner() {

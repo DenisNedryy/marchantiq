@@ -33,15 +33,15 @@ export function ShowCase_items() {
     }, []);
 
     return (
-        items && items.length > 0 ? (
+        // items && items.length > 0 ? (
             <div className="showCaseArticles">
                 <div className="box">
                     <h2>Nouveautés</h2>
                     <Carrousel items={items} />
                 </div>
             </div>
-        ) : (
-           state.isConnected && <NavLink to="/admin/addItems"><button className="btn">Créer un objet</button></NavLink>
-        )
+        // ) : (
+        //    state.isConnected && <NavLink to="/admin/addItems"><button className="btn">Créer un objet</button></NavLink>
+        // )
     );
 }

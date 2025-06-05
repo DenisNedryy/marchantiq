@@ -39,7 +39,7 @@ export function ShowCase_articles() {
     }
 
     return (
-        Object.keys(news).length>0 ? (
+        // Object.keys(news).length>0 ? (
             <div className="showCaseArticles">
                 <div className="box">
                     <h2>À la une</h2>
@@ -53,9 +53,9 @@ export function ShowCase_articles() {
                     </div>
                 </div>
             </div>
-        ) : (
-            state.isConnected && <NavLink to="/admin/addArticles"><button className="btn">Créer un article</button></NavLink>
-        )
+        // ) : (
+        //     state.isConnected && <NavLink to="/admin/addArticles"><button className="btn">Créer un article</button></NavLink>
+        // )
 
 
 
