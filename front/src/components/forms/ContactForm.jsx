@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { PhoneNumberField } from "../forms/PhoneNumberField";
 
 export function ContactForm({ uuid, onUpdate }) {
 
-    const [objectValue, setObjectValue] = useState(`Marchantiq - Demande de renseignement`)
+    const [objectValue, setObjectValue] = useState(`Marchantiq - Demande de renseignement`);
+    const [phone, setPhone] = useState("");
 
     async function handleChange(e) {
         setObjectValue(e.target.value);
@@ -15,7 +17,6 @@ export function ContactForm({ uuid, onUpdate }) {
         const name = form.elements['name'].value;
         const email = form.elements['email'].value;
         const prenom = form.elements['prenom'].value;
-        const phone = form.elements['phone'].value;
         const objet_message = form.elements['objet_message'].value;
         const message = form.elements['message'].value;
         const items_uuid = uuid;
@@ -31,7 +32,9 @@ export function ContactForm({ uuid, onUpdate }) {
             items_uuid: items_uuid
         }
 
+        console.log(phone);
         form.reset();
+        setPhone("");
         onUpdate(data);
     }
 
@@ -57,13 +60,13 @@ export function ContactForm({ uuid, onUpdate }) {
                         </div>
                         <div>
                             <label>Téléphone:</label>
-                            <input type="number" name="phone" />
+                            <PhoneNumberField setPhone={setPhone} />
                         </div>
                     </div>
                 </div>
                 <div className="contactForm__rest">
                     <div>
-                        <label>Object du message:</label>
+                        <label>Objet du message:</label>
                         <input type="text" name="objet_message" value={objectValue} onChange={handleChange} />
                     </div>
                     <div>

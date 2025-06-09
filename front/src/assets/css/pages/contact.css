@@ -40,7 +40,7 @@ hr {
 .contact__contact__addresseEmail {
     color: #a58934;
     text-decoration: none;
-    margin: 5px 0px 15px 0px; 
+    margin: 5px 0px 15px 0px;
 }
 
 .contact__coordonées__flyer {
@@ -127,4 +127,27 @@ hr {
 .btnContainer .btn {
     width: 105px;
     align-self: flex-end;
+}
+
+/* ------form tel------- */
+
+.phoneNumberField img {
+    width: 20px;
+    height: 20px;
+}
+
+.phoneNumberField__inputs {
+    display: flex;
+    position: relative;
+}
+
+.phoneNumberField__inputs input {
+    height: 32px;
+}
+
+.myTelInput {
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    width: 237px;
 }
