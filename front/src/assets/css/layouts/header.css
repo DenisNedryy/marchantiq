@@ -1,0 +1,179 @@
+header {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    height: 95px;
+}
+
+.header__logo {
+    background-color: black;
+    width: 100%;
+    z-index: 5;
+    position: relative;
+}
+
+.header__logo__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__logo__content i {
+    color: white;
+    margin-left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header__logo__content i:hover {
+    color: rgb(230, 225, 225);
+}
+
+header .header__logo img {
+    width: 188px;
+}
+
+/*----------- Menu  ---------*/
+
+.header__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    position: relative;
+    z-index: 5;
+}
+
+.logoAntic {
+    width: 116px;
+    padding: 15px;
+    filter: brightness(1.1);
+}
+
+.chopeGer {
+    width: 58px;
+    padding: 9px;
+    filter: brightness(1.1);
+}
+
+.header__menu__pages {
+    display: flex;
+    align-items: center;
+}
+
+.header__menu__pages ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+}
+
+.header__menu__pages li {
+    position: relative;
+    height: 20px;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+    width: fit-content;
+    font-family: titres;
+}
+
+.header__menu__pages a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header__menu__pages li span {
+    display: block;
+    transition: transform 0.4s ease;
+    text-align: center;
+}
+
+.header__menu__pages li::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    font-weight: 600;
+    color: black;
+
+}
+
+.header__menu__pages li:hover span {
+    transform: translateY(-100%);
+}
+
+.header__menu__pages li:hover::after {
+    transform: translateY(0%);
+}
+
+.header__menu__pages i {
+    color: rgba(0, 0, 0, .8);
+    transition-duration: .4s;
+    transition-timing-function: ease-in-out;
+    padding: 5px;
+}
+
+.header__menu__pages i:hover {
+    color: black;
+    cursor: pointer;
+    /* transform: scale(1.5) rotate(360deg); */
+    transform: scale(1.5) translate(20%);
+}
+
+/*--------- FORM searchBar ---------*/
+
+.header__searchBar {
+background: linear-gradient(275deg, #d6c7a3 20%, #a68f6b 85%);
+
+    padding: 15px;
+    position: absolute;
+    top: 93px;
+    z-index: 4;
+    transform: translateY(-100%);
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    border: 1px solid rgb(220, 220, 220);
+}
+
+.header__searchBar input {
+    outline: none;
+    height: 70px;
+    width: 100%;
+    padding-left: 25px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+}
+
+.header__searchBar {
+    width: 100%;
+    margin: auto;
+}
+
+.header__searchBar form {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    width: 60%;
+    margin: auto;
+}
+
+.header__searchBar form button {
+    height: 70px;
+    width: 79px;
+    font-size: 21px;
+    color: rgba(0, 0, 0, .8);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

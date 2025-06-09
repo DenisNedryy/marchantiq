@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "Helvetica Now Text Medium", Helvetica, Arial, sans-serif;
+    background-color: rgb(242, 242, 242);
+}
+
+main {
+    flex: 1;
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 70px - 143px); 
+    margin-top:95px;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

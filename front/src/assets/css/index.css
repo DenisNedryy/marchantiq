@@ -1,0 +1,17 @@
+@import "./miseEnPage.css";
+@import "./utils.css";
+@import "./animation.css";
+
+/*Layouts*/
+@import "./layouts/header.css";
+@import "./layouts/footer.css";
+@import "./layouts/categories.css";
+
+/*Pages*/
+@import "./pages/accueil.css";
+@import "./pages/presentation.css";
+@import "./pages/news.css";
+@import "./pages/auth.css";
+@import "./pages/contact.css";
+@import "./pages/admin.css";
+@import "./pages//items.css";
