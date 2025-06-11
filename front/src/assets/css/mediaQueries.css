@@ -298,15 +298,13 @@
         padding-left: 15px;
         padding-bottom: 8px;
         transition-duration: .4s;
-        background-color: rgba(0, 0, 0, .5);
-        color: white;
-        width: 100%;
-        backdrop-filter: blur(4px);
+        color: black;
     }
 
     body .items__container img {
         width: 100%;
         border: none;
+        border: 1px solid black;
     }
 
     body .items__container__item--banner {
@@ -318,10 +316,12 @@
     }
 
     body .items__container__item__text--name {
-        color: white;
+        color: black;
     }
 
-
+    body .items__container__item {
+        border: 1px solid black;
+    }
 
 }
 
@@ -335,5 +335,18 @@
     body .items__container__item {
         width: 90%;
         height: 250px;
+    }
+
+    body .items__container img {
+        width: 100%;
+        border: none;
+        border: 1px solid black;
+        padding: 32px;
+    }
+
+    body .items__container__item__text {
+        width: 100%;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        backdrop-filter: blur(4px);
     }
 }
