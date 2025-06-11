@@ -34,7 +34,7 @@ export function ShowCase_items() {
 
     return (
         // items && items.length > 0 ? (
-            <div className="showCaseArticles">
+            <div className="showCaseItems">
                 <div className="box">
                     <h2>Nouveautés</h2>
                     <Carrousel items={items} />

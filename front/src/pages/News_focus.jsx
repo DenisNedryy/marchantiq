@@ -57,17 +57,18 @@ export function News_focus() {
                 {news && news.length !== 0 && (
                     <div className="actuality">
                         <div className="actuality__news">
-                            <p>{news.titre}</p>
+                            <p className="actuality__news--title">{news.titre}</p>
+                            <p className="news-description">{news.description}</p>
                             <img src={`${HOST}/api/images/news/${news.img_url}`} onClick={showImgFromApi} />
                             {state.isConnected && <button className="btn btn-deleteNews" onClick={deleteMyArticle}>Suprimer l'article</button>}
                             {state.isConnected && <NavLink to={`/admin/updateArticle?id=${uuid}`}><button className="btn btn-updateNews">Modifier l'article</button></NavLink>}
                         </div>
-                        <p className="news-description">{news.description}</p>
+
                         {/*------threads-----*/}
                         <div className="actuality__threads">
                             {state.isConnected && <NavLink to={`/admin/addArticles?step=3&id=${news.uuid}`}><button className="btn btn-createThread">Ajouter un chapitre</button></NavLink>}
                             {news.threads && news.threads.map((thread, index2) => (
-                                <div key={index2} className="actuality__threads__thread"> 
+                                <div key={index2} className="actuality__threads__thread">
 
                                     {state.isConnected && <NavLink to={`/admin/updateThread?newsId=${news.uuid}&threadId=${thread.uuid}`}><button className="btn btn-updatedThread">Modifier</button></NavLink>}
                                     {state.isConnected && <button className="btn btn-deleteThread" onClick={deleteMyThread} data-id={thread.uuid}>Supprimer</button>}

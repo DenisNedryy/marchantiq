@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export function Footer() {
     return (
         <footer>
@@ -5,36 +7,32 @@ export function Footer() {
                 <div className="footerContainer__top">
                     <div className="footerContainer__top__left">
                         <img src="src/assets/pictures/logo/marchantiq_logo_black.png" alt="logo" />
-                        {/* <!-- <div className="footerContainer__top__left__text">
-                            <div className="footerContainer__top__left__text--titre">Marchantiq</div>
-                            <div className="footerContainer__top__left__text--description">Achat - Vente - Estimation</div>
-                        </div> --> */}
                     </div>
                     <div className="footerContainer__top__right">
                         <div className="footerContainer__top__right--category">
-                            <p className="description">Accueil</p>
+                            <p className="description">Informations de contact</p>
                             <ul>
-                                <li><a href="http://localhost/api_jf/presentation">Présentation</a></li>
-                                <li><a href="http://localhost/api_jf/recueil?category=tous&page=1">Le coin des collectionneurs</a></li>
-                                <li><a href="http://localhost/api_jf/contact">Contact-Coordonnées</a></li>
+                                <li>Adresse postale</li>
+                                <li>Numéro de téléphone: 06 12 36 00 87</li>
+                                <li>Adresse e-mail: march.js@orange.fr</li>
+                                <NavLink to="/contact"><li>Contact</li></NavLink>
                             </ul>
                         </div>
                         <div className="footerContainer__top__right--category">
-                            <p className="description">Antiquités</p>
+                            <p className="description">Liens utiles</p>
                             <ul>
-                                <li><a href="http://localhost/api_jf/objets?category=mobilier">Mobilier</a></li>
-                                <li><a href="http://localhost/api_jf/objets?category=monnaie">Monnaie</a></li>
-                                <li><a href="http://localhost/api_jf/objets?category=militaria">Militaria</a></li>
+                                <NavLink to="/presentation"><li>À propos / Qui sommes-nous</li></NavLink>
+                                <NavLink to="/"><li>Accueil</li></NavLink>
+                                <NavLink to="//items/furniture"><li>Mobilier</li></NavLink>
+                                <NavLink to="/news"><li>Le coin des collectionneurs</li></NavLink>
                             </ul>
                         </div>
                         <div className="footerContainer__top__right--category">
-                            <p className="description">Infos utiles</p>
+                            <p className="description">Obligations légales</p>
                             <ul>
-                                <li><a href="http://localhost/api_jf/contact">Expertise / Estimation</a></li>
-                                <li><a href="">Conditions générales</a></li>
-                                <li><a href="">Mentions légales</a></li>
-                                <li><a href="">Politique de confidentialité</a></li>
-                                <li><a target="_blank" href="https://icons8.com/icon/12830/sofa">Meubles</a> icône par <a target="_blank" href="https://icons8.com">Icons8</a></li>
+                                <li>EDITEUR: Marchais Jean-François</li>
+                                <li>HERBERGEUR: o2switch</li>
+                                <li>SIRET: EI RCS SIREN 818279408 poitiers</li>
                             </ul>
                         </div>
                     </div>

@@ -18,6 +18,11 @@
     src: url('../fonts/Roboto-Medium.ttf');
 }
 
+@font-face {
+    font-family: heading;
+    src: url('../fonts/lemonMilk.otf');
+}
+
 .titre {
     font-family: german;
 }

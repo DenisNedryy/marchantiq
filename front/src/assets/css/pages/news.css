@@ -52,24 +52,7 @@
 
 .actuality__news {
     position: relative;
-    margin-bottom: 68px;
-}
-
-.actuality__news p {
-    position: absolute;
-    top: 61%;
-    left: 19%;
-    font-size: 25px;
-    font-family: titres;
-    border-radius: 5px;
-    color: #a58934;
-    padding: 22px 15px 27px 15px;
-    width: 437px;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 4px solid black;
-    z-index: 999;
+    margin-bottom: 20px;
 }
 
 .actuality__news img {
@@ -78,17 +61,31 @@
     object-fit: cover;
 }
 
+.actuality__news--title {
+    font-family: heading;
+    font-size: 25px;
+    border-radius: 5px;
+    color: black;
+    padding: 22px 15px 27px 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 999;
+}
+
 .news-description {
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     color: rgb(54, 54, 54);
-    width: 65%;
+    width: 100%;
     margin: auto;
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     padding-bottom: 34px;
     word-break: break-all;
-    margin-top: 120px;
+    color: #a58934;
 }
+
 
 .btn-deleteNews {
     position: absolute;
@@ -135,6 +132,11 @@
     width: 200px;
     height: 200px;
     object-fit: fill;
+}
+
+body .soloImgThread {
+    width: 100%;
+    height: 331px;
 }
 
 .actuality__threads__thread__img p {
