@@ -21,11 +21,14 @@
 @keyframes appearsFromRight {
     0% {
         opacity: 0;
-        transform: translateX(100%) scale(1); /* <-- déjà inclure scale(1) */
+        transform: translateX(100%) scale(1);
+        /* <-- déjà inclure scale(1) */
     }
+
     100% {
         opacity: 1;
-        transform: translateX(0%) scale(1);   /* idem */
+        transform: translateX(0%) scale(1);
+        /* idem */
     }
 }
 
@@ -91,5 +94,16 @@
         transform-origin: 50% 0%;
         border-radius: 0%;
         opacity: 1;
+    }
+}
+
+@keyframes flyersSelection {
+    0% {
+        transform: translateX(50px);
+    }
+
+    100% {
+        transform: translateX(0%) translateY(-200px) scale(2);
+        z-index: 999;
     }
 }

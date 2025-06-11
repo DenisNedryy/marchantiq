@@ -1,0 +1,247 @@
+@media screen and (max-width: 1067px) {
+
+    body .header__menu__pagesMini__menu {
+        display: flex;
+    }
+
+    body .header__menu__pages li {
+        display: none;
+    }
+
+    body .header__menu__pagesMini {
+        display: flex;
+    }
+
+    body .header__menu {
+        justify-content: space-between;
+        padding: 0px 15px;
+        font-size: 25px;
+    }
+
+    body .header__menu i {
+        z-index: 9999;
+    }
+
+    body .box {
+        width: 100%;
+    }
+
+    .accueil {
+        width: 64%;
+    }
+
+    .body .accueil .box {
+        width: 100%;
+    }
+
+    body .categories__origin img {
+        width: 94%;
+    }
+
+    body .actuality__news p {
+        width: 72%;
+    }
+
+    body .actuality__threads__thread__img__imgETlegend img {
+        height: 350px;
+    }
+
+    body aside {
+        width: 31%;
+    }
+
+    body .showCaseArticles {
+        width: 100%;
+    }
+
+    body .presentation,
+    body .newsCorner,
+    body .contact,
+    body .auth,
+    body .newsFocus,
+    body .items,
+    body .itemsDetails,
+    body .searchItems {
+        width: 66%;
+    }
+
+    body .carrouselMini__miniatures img {
+        width: 50px;
+        height: 50px;
+    }
+
+    body .carrousel {
+        width: 430px;
+    }
+
+    body .header__searchBar {
+        top: 106px;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    body main {
+        flex-direction: column;
+    }
+
+    body aside {
+        width: 100%;
+    }
+
+    body .categories {
+        margin: 0px;
+    }
+
+    body aside img {
+        display: none;
+    }
+
+    body .categories {
+        position: absolute;
+        top: 107px;
+        bottom: 0;
+        width: 100%;
+        z-index: 899;
+        position: fixed;
+        background: white;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 30px 5px;
+    }
+
+    body .categories h2 {
+        background-color: #b91c1c;
+        color: white;
+    }
+
+    body .categories li {
+        color: black;
+    }
+
+    body .categories__miniMenu {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        z-index: 99999999999;
+        left: 88px;
+        font-weight: 600;
+        background-color: white;
+        border: 1px solid black;
+        color: black;
+    }
+
+    body .categories__miniMenu:hover {
+        background-color: rgb(241, 237, 237);
+    }
+
+    body .accueil {
+        width: 100%;
+    }
+
+    body .carrousel {
+        width: 294px;
+    }
+
+    body .carrousel__slides__slide {
+        width: 294px;
+    }
+
+    body .carrousel__slides__slide img {
+        padding: 26px;
+    }
+
+    body .flyers img {
+        border-radius: 0px;
+    }
+
+    body .flyers__container .flyer:hover {
+        transform: translateX(0px);
+    }
+
+    body .flyers__container .para_2 {
+        top: 42%;
+        font-size: 14px;
+    }
+
+    body .flyers__container .para_1 {
+        top: 29%;
+        left: 7%;
+    }
+
+    body .presentation,
+    body .newsCorner,
+    body .contact,
+    body .auth,
+    body .newsFocus,
+    body .items,
+    body .itemsDetails,
+    body .searchItems {
+        width: 100%;
+    }
+
+
+    body .soloImgThread {
+        height: 282px;
+        width: 100%;
+    }
+
+    body .footerContainer__top__right {
+        flex-direction: column;
+    }
+
+    body .footerContainer__top__left img {
+        display: none;
+    }
+
+    footer .footerContainer__top__right--category {
+        margin: 15px 0px;
+    }
+
+    footer p {
+        margin: 5px 0px;
+    }
+
+    body .actuality__news img {
+        height: 285px;
+    }
+
+    body .actuality__news p {
+        left: 0;
+        width: 100%;
+        border: none;
+    }
+
+    body .news-description {
+        width: 100%;
+    }
+
+
+
+    body .steps h3 {
+        text-align: center;
+    }
+
+    body .createForm {
+        width: 100%;
+    }
+
+    body .actuality__news .btn {
+        font-size: 12px;
+    }
+
+    body .actuality__threads .btn {
+        font-size: 12px;
+    }
+
+    html body .soloImgThread {
+        height: 220px;
+        width: 100%;
+    }
+
+    html body .header__searchBar form {
+        width: 100%;
+    }
+
+}

@@ -25,6 +25,10 @@
     transition-duration: 1s;
     width: 184px;
 }
+.imgNotFound{
+    width: 100%!important;
+    padding: 15px;
+}
 
 .items__container__item--banner {
     position: absolute;
@@ -212,7 +216,7 @@
     cursor: pointer;
     font-size: 28px;
     padding: 15px;
-    z-index: 9999;
+    z-index: 800;
     background-color: rgba(0, 0, 0, .5);
     color: white;
     width: 50px;

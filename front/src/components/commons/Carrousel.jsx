@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { HOST } from "../../host/host";
 import { useState, useEffect, useRef } from "react";
+import { useWindowSize } from "../../hooks/useWindowSize.js";
 
 export function Carrousel({ items }) {
 
@@ -8,27 +9,30 @@ export function Carrousel({ items }) {
     const itemsRef = useRef(null);
     const containerRef = useRef(null);
     const [myItems, setMyItems] = useState([]);
+    const { width } = useWindowSize();
+    const [ficheWidth, setFicheWidth] = useState(217); // 205w + 12 margin-right
 
-    let ficheWidth = 217; // 205w + 12 margin-right
     let turn = 0;
-    let nbArticlePerVision = 3; 
+    let nbArticlePerVision = 3;
 
-const invertedCategoryMap = {
-    "mobilier": "furniture",
-    "bibelot": "knick-knacks",
-    "militaria": "militaria",
-    "livre": "books",
-    "numismatique": "numismatics",
-    "tableau": "paintings",
-    "carte-postale": "postcards",
-    "divers": "miscellaneous"
-};
-
-    function createClones() {
-        for (let i = 0; i < 4; i++) {
-            setMyItems(prevState => ([...prevState, prevState[i]]));
+    useEffect(() => {
+        if (width < 750) {
+            setFicheWidth(306);
         }
-    }
+    }, [width]);
+
+    const invertedCategoryMap = {
+        "mobilier": "furniture",
+        "bibelot": "knick-knacks",
+        "militaria": "militaria",
+        "livre": "books",
+        "numismatique": "numismatics",
+        "tableau": "paintings",
+        "carte-postale": "postcards",
+        "divers": "miscellaneous"
+    };
+
+
 
     function turnLeft() {
         turn--;
@@ -38,7 +42,19 @@ const invertedCategoryMap = {
 
     function turnRight() {
         itemsRef.current.style.transitionDuration = "1s";
-        if(turn+2>=items.length-1) return;
+        if (width >= 1068) {
+            if (turn + 2 >= items.length - 1) {
+                return;
+            }
+        } else if (width >= 750 && width <= 1067) {
+            if (turn + 1 >= items.length - 1) {
+                return;
+            }
+        }else if(width<750){
+              if (turn >= items.length - 1) {
+                return;
+            }
+        }
         turn++;
         itemsRef.current.style.transform = `translateX(-${ficheWidth * turn}px)`;
     }

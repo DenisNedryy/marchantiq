@@ -3,16 +3,18 @@ import { getItemsByCategory } from "../../services/items";
 import { NavLink, useParams, useLocation } from "react-router-dom";
 import { HOST } from "../../host/host";
 import { PaginationBottom } from "../../components/commons/PaginationBottom";
+import notFound404 from "../../assets/pictures/photos/notFound404.png";
 
-export function Items({itemsData=[]}) {
+export function Items({ itemsData = [] }) {
 
     const { category } = useParams();
-    const [items, setItems] = useState([]); 
+    const [items, setItems] = useState([]);
     const location = useLocation();
     const itemsPerPage = 6;
     const [myCurrentPage, setMyCurrentPage] = useState(1);
     const [nbPage, setNbPage] = useState();
     const itemContainerRef = useRef(null);
+    const [itemsNotFound, setItemsNotFound] = useState(false);
 
     const categoryMap = {
         "furniture": "mobilier",
@@ -31,15 +33,17 @@ export function Items({itemsData=[]}) {
     }, [category, location, itemsData]);
 
     async function controller() {
-        const itemsByCategory = itemsData.length===0 ? await getMyItemsByCategory() : itemsData;
+        const itemsByCategory = itemsData.length === 0 ? await getMyItemsByCategory() : itemsData;
+        itemsByCategory.length === 0 ? setItemsNotFound(true) : setItemsNotFound(false);
         const currentPage = getQueryStringPage();
         setMyCurrentPage(currentPage);
         const myPageLength = Math.ceil(itemsByCategory.length / itemsPerPage);
         setNbPage(myPageLength);
 
         const itemsPerPagination = getItemsPerPagination(itemsByCategory, itemsPerPage, currentPage);
-         
-        setItems(itemsPerPagination); 
+
+        setItems(itemsPerPagination);
+
     }
 
     async function getMyItemsByCategory() {
@@ -62,13 +66,13 @@ export function Items({itemsData=[]}) {
         }
         return itemsForThisPage;
     }
-     
+
 
     return (
         <div className="items">
             <div className="box">
                 <h2>{categoryMap[category]}</h2>
-              <div className="items__container" key={myCurrentPage}>
+                <div className="items__container" key={myCurrentPage}>
                     {items && items.length > 0 && items.map((item, index) => (
                         <NavLink to={`/items/${category}/items-details/${item.uuid}`} key={index} className="items__container__item item-fade-in"
                             style={{ animationDelay: `${index * 100}ms` }} ref={itemContainerRef}>
@@ -80,9 +84,11 @@ export function Items({itemsData=[]}) {
                             </div>
                         </NavLink>
                     ))}
+
+                    {itemsNotFound && <img src={notFound404} className="imgNotFound" />}
                 </div>
-                
-                <PaginationBottom pageLength={nbPage} currentPage={myCurrentPage} route={`/items/${category}`} itemsPerPage={itemsPerPage}/>
+
+                {items && items.length > 0 && <PaginationBottom pageLength={nbPage} currentPage={myCurrentPage} route={`/items/${category}`} itemsPerPage={itemsPerPage} />}
             </div>
         </div>
     );

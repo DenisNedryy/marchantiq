@@ -10,28 +10,41 @@ import horloge from "../../assets/pictures/logo/horloge.png";
 import horloge2 from "../../assets/pictures/logo/horloge_0.jpg";
 
 import { NavLink, useParams } from "react-router-dom";
+import { useState } from "react";
 
 export function Categories() {
 
+    const [isMobileCategories, setIsMobileCategories] = useState(true);
+
+    function toggleCategoriesMini() {
+        setIsMobileCategories(!isMobileCategories);
+    }
+
+    // { isMobileMenu && <i className="fa-solid fa-bars" onClick={togglePageMini} /> }
+    // { !isMobileMenu && <i className="fa-solid fa-xmark" onClick={togglePageMini} /> }
+    // <div className={`header__menu__pagesMini__menu${!isMobileMenu ? " open" : ""}`}></div>
+
     return (
-        <div className="categories__origin">
-            <div className="categories">
-                <h2>Categories</h2>
-                <ul>
-                    <NavLink to="/items/furniture"><li>Mobilier</li></NavLink>
-                    <NavLink to="/items/knick-knacks"><li>Bibelots</li></NavLink>
-                    <NavLink to="/items/militaria"><li>Militaria</li></NavLink>
-                    <NavLink to="/items/books"><li>Livres</li></NavLink>
-                    <NavLink to="/items/numismatics"><li>Numismatiques</li></NavLink>
-                    <NavLink to="/items/paintings"><li>Tableaux</li></NavLink>
-                    <NavLink to="/items/postcards"><li>Cartes postales</li></NavLink>
-                    <NavLink to="/items/miscellaneous"><li>Divers</li></NavLink>
+        <>
+            <button className="btn categories__miniMenu" onClick={toggleCategoriesMini}>Categories</button>
 
-                </ul>
+            <div className="categories__origin">
 
+                <div className={`categories${!isMobileCategories ? " open" : ""}`}>
+                    <h2>Categories</h2>
+                    <ul>
+                        <NavLink to="/items/furniture" onClick={toggleCategoriesMini}><li>Mobilier</li></NavLink>
+                        <NavLink to="/items/knick-knacks" onClick={toggleCategoriesMini}><li>Bibelots</li></NavLink>
+                        <NavLink to="/items/militaria" onClick={toggleCategoriesMini}><li>Militaria</li></NavLink>
+                        <NavLink to="/items/books" onClick={toggleCategoriesMini}><li>Livres</li></NavLink>
+                        <NavLink to="/items/numismatics" onClick={toggleCategoriesMini}><li>Numismatiques</li></NavLink>
+                        <NavLink to="/items/paintings" onClick={toggleCategoriesMini}><li>Tableaux</li></NavLink>
+                        <NavLink to="/items/postcards" onClick={toggleCategoriesMini}><li>Cartes postales</li></NavLink>
+                        <NavLink to="/items/miscellaneous" onClick={toggleCategoriesMini}><li>Divers</li></NavLink>
+                    </ul>
+                </div>
+                <img src={horloge} />
             </div>
-            <img src={horloge} />
-        </div>
-
+        </>
     );
 }

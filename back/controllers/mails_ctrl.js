@@ -1,10 +1,16 @@
 require("dotenv").config();
+const pool = require("../connection/sqlConnection");
 const nodemailer = require("nodemailer");
+const path = require("path");
+const fs = require('fs').promises;
 
 exports.sendMail = async (req, res, next) => {
-  const { name, prenom, email, phone, subject, message, items_uuid } = req.body;
 
   try {
+
+    const { name, prenom, email, phone, subject, message, items_uuid } = req.body;
+    const fileName = req.file ? req.file.filename : null;
+
     // 1. Création du transporteur
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -12,7 +18,7 @@ exports.sendMail = async (req, res, next) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
-      tls: { rejectUnauthorized: false }
+      tls: { rejectUnauthorized: false },
     });
 
     // 2. Définition de l'email à envoyer
@@ -21,55 +27,59 @@ exports.sendMail = async (req, res, next) => {
       to: process.env.EMAIL_USER,
       subject: subject || "Nouveau message depuis le formulaire",
       html: `
- <div style="background: #f4f4f7; padding: 40px 0; font-family: 'Segoe UI', Roboto, sans-serif;">
-    <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
-      
-      <div style="background: #2f855a; padding: 20px 30px;">
-        <h2 style="margin: 0; color: #ffffff; font-size: 22px;">📩 Nouveau message du site Marchantiq</h2>
+      <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px; color: #333;">
+        <div style="max-width: 600px; margin: auto; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow: hidden;">
+          
+          <div style="background-color: #4CAF50; color: white; padding: 20px; text-align: center;">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/send-mass-email.png" alt="Message icon" style="max-height: 40px; vertical-align: middle;" />
+            <h2 style="margin: 10px 0 0;">Nouveau message du site Marchantiq</h2>
+          </div>
+          
+          <div style="padding: 20px;">
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+              <img src="https://img.icons8.com/ios-filled/50/000000/user.png" style="width: 24px; margin-right: 10px;" />
+              <div><strong>Nom :</strong> ${name}</div>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+              <img src="https://img.icons8.com/ios-filled/50/000000/name.png" style="width: 24px; margin-right: 10px;" />
+              <div><strong>Prénom :</strong> ${prenom}</div>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+              <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" style="width: 24px; margin-right: 10px;" />
+              <div><strong>Email :</strong> ${email}</div>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+              <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" style="width: 24px; margin-right: 10px;" />
+              <div><strong>Téléphone :</strong> ${phone}</div>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+              <img src="https://img.icons8.com/ios-filled/50/000000/qr-code.png" style="width: 24px; margin-right: 10px;" />
+              <div><strong>N° de l'objet :</strong> ${items_uuid ? items_uuid : "Non renseigné"}</div>
+            </div>
+            <div style="margin-top: 15px; padding: 15px; background-color: #f1f1f1; border-left: 4px solid #4CAF50; white-space: pre-wrap;">
+              ${message.replace(/\n/g, "<br/>")}
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div style="padding: 30px; color: #333;">
-        <p style="margin-bottom: 20px; font-size: 16px;">Vous avez reçu un message depuis le formulaire de contact :</p>
-
-        <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
-          <tr>
-            <td style="padding: 10px 0; font-weight: 600;">👤 Nom</td>
-            <td style="padding: 10px 0;">${name}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; font-weight: 600;">🧍 Prénom</td>
-            <td style="padding: 10px 0;">${prenom}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; font-weight: 600;">📧 Email</td>
-            <td style="padding: 10px 0;">${email}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; font-weight: 600;">📞 Téléphone</td>
-            <td style="padding: 10px 0;">${phone}</td>
-          </tr>
-             <tr>
-            <td style="padding: 10px 0; font-weight: 600;">🆔 N° de l'objet</td>
-            <td style="padding: 10px 0;">${items_uuid ? items_uuid : "Non renseigné"}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; font-weight: 600; vertical-align: top;">📝 Message</td>
-            <br/>
-            <td style="padding: 10px 0; white-space: pre-line;">${message.replace(/\n/g, "<br/>")}</td>
-          </tr>
-        </table>
-      </div>
-
-      <div style="background: #edf2f7; padding: 20px 30px; text-align: center; color: #666; font-size: 13px;">
-        Ce message a été généré automatiquement par le site <strong>marchantiq.fr</strong>
-      </div>
-    </div>
-  </div>
-      `
+      `,
+      attachments: [
+        {
+          filename: fileName,
+          path: path.join(__dirname, "../uploads/pictures/items", fileName)
+        }
+      ]
     };
 
     // 3. Envoi de l'email
     const info = await transporter.sendMail(mailOptions);
+
+    // supression de l'image 
+    try {
+      await fs.unlink(`uploads/pictures/items/${fileName}`);
+    } catch (err) {
+      res.status(500).json({ error: err });
+    }
 
     // 4. Réponse au client
     res.status(200).json({ message: "Email envoyé avec succès", info: info.response });

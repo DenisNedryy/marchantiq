@@ -50,7 +50,7 @@ function App() {
       <Header />
       <main>
         <aside>
-          <Categories />
+          <Categories /> 
         </aside>
         <Routes>
           <Route path="/" element={<Accueil />} />

@@ -57,3 +57,12 @@
     margin-right: 15px;
     padding: 5px;
 }
+
+.categories.open {
+    transform: translateX(0);
+    right: 0;
+}
+
+.categories__miniMenu{
+    display:none;
+}

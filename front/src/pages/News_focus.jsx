@@ -89,7 +89,7 @@ export function News_focus() {
                                             <div className="actuality__threads__thread__img__imgETlegend" style={{ width: "100%" }}>
                                                 {state.isConnected && <NavLink to={`/admin/updateThreadImg?newsId=${news.uuid}&threadImgId=${thread.images[0].uuid}`}><button className="btn btn-createThread">Modifier l'image</button></NavLink>}
                                                 {state.isConnected && <button className="btn btn-deleteThreadImg" data-id={thread.images[0].uuid} onClick={deleteMyThreadImg}>Supprimer l'image</button>}
-                                                <img src={`${HOST}/api/images/threads/${thread.images[0].img_url}`} style={{ height: "437px", width: "100%" }} onClick={showImgFromApi} />
+                                                <img src={`${HOST}/api/images/threads/${thread.images[0].img_url}`} className="soloImgThread" onClick={showImgFromApi} />
                                                 <p>{thread.images[0].commentaire}</p>
                                             </div>
                                         }

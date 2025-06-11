@@ -1,18 +1,18 @@
 import { HOST } from "../host/host.js";
 
-export async function sendMail(body) {
+export async function sendMail(data) {
+    console.log("service__mail");
     try {
         const preRes = await fetch(`${HOST}/api/mails`, { 
             method: "POST",
             headers: {
-                'Content-Type': "application/json"
             },
             credentials: "include",
-            body: JSON.stringify(body),
+            body: data,
         });
         const res = await preRes.json();
         return res;
     } catch (err) {
-        console.error(err); 
+        console.error(err);  
     }
 };

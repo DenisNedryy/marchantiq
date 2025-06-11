@@ -19,23 +19,25 @@ export function ContactForm({ uuid, onUpdate }) {
         const prenom = form.elements['prenom'].value;
         const objet_message = form.elements['objet_message'].value;
         const message = form.elements['message'].value;
+        const img_url = form.elements['img_url'].files[0] || null;
         const items_uuid = uuid;
 
+        // const data = {
+        //     name: name,
+        //     prenom: prenom,
+        //     email: email,
+        //     phone: phone,
+        //     message: message,
+        //     subject: objet_message,
+        //     items_uuid: items_uuid,
+        //     img_url: img_url
+        // }
 
-        const data = {
-            name: name,
-            prenom: prenom,
-            email: email,
-            phone: phone,
-            message: message,
-            subject: objet_message,
-            items_uuid: items_uuid
-        }
-
-        console.log(phone);
+        const formData = new FormData(form);
+        formData.append("phone", phone);
+        onUpdate(formData); 
         form.reset();
         setPhone("");
-        onUpdate(data);
     }
 
     return (
@@ -52,6 +54,10 @@ export function ContactForm({ uuid, onUpdate }) {
                             <label>Email:</label>
                             <input type="mail" name="email" />
                         </div>
+                        <div>
+                            <label>image:</label>
+                            <input type="file" name="img_url" />
+                        </div>
                     </div>
                     <div className="form__right">
                         <div>
@@ -59,7 +65,6 @@ export function ContactForm({ uuid, onUpdate }) {
                             <input type="text" name="prenom" />
                         </div>
                         <div>
-                            <label>Téléphone:</label>
                             <PhoneNumberField setPhone={setPhone} />
                         </div>
                     </div>

@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 30px; 
 }
 
 .steps h3 {
@@ -51,6 +51,9 @@ label {
 .form-buttons {
     display: flex;
     flex-direction: initial;
+}
+.form-buttons .btn {
+    margin: 5px;
 }
 
 /* images items */

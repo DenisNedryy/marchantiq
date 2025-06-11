@@ -22,6 +22,12 @@
     font-family: german;
 }
 
+.border {
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    width: 80%;
+    margin: 21px auto;
+}
+
 .box {
     position: relative;
     border: 1px solid #dfdfdf;
