@@ -203,6 +203,7 @@ exports.updateItem = async (req, res, next) => {
         const uuid = req.params.uuid;
         // Récupération des données
         const { name, price, artist, state, matiere, longeur, largeur, hauteur, diam, profondeur, style, epoque, year, category, description, isNew } = req.body;
+        console.log(isNew);
 
         // Création de l'objet recipe
         const itemData = {
