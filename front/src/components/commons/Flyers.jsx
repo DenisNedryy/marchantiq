@@ -15,8 +15,8 @@ export function Flyers() {
                         <img src={flyer_jf_2} />
                         <div className="para_1">
                             <p style={{ fontFamily: "titres", fontWeight: "600" }}>Achat Vente Estimation</p>
-                            <p>Envoyez moi des <span className="red">photos</span></p>
-                            <p>de vos objets</p>
+                            <p className="flyer__para_1_2">Envoyez moi des <span className="red">photos</span></p>
+                            <p className="flyer__para_1_3">de vos objets</p>
                         </div>
                     </div>
                 </NavLink>

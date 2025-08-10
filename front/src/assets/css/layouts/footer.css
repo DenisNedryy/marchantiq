@@ -62,3 +62,7 @@ footer a {
 	text-decoration: none;
 	color: inherit;
 }
+
+.footerContainer__top__left p {
+	font-family: eastAnglia;
+}

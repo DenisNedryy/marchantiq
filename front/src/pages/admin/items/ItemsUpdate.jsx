@@ -55,7 +55,9 @@ export function ItemsUpdate({ step, setStep }) {
     }
 
     async function mergeMyForms() {
+        console.log(form3);
         const mergedForms = { ...form1, ...form2, ...form3 };
+        mergedForms.isNew  = mergedForms.isNew=== true ? "1" : "0";
         return mergedForms;
     }
 

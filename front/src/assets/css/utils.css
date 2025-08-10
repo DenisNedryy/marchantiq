@@ -23,6 +23,38 @@
     src: url('../fonts/lemonMilk.otf');
 }
 
+@font-face {
+    font-family: roboto-regular;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: cardinal;
+    src: url('../fonts/Cardinal.ttf');
+}
+
+@font-face {
+    font-family: oddEng;
+    src: url('../fonts/OldeEnglish.ttf');
+}
+
+@font-face {
+    font-family: eastAnglia;
+    src: url('../fonts/East_Anglia.otf');
+}
+
+@font-face {
+    font-family: univers;
+    src: url('../fonts/univers.ttf');
+}
+
+@font-face {
+    font-family: roseCap;
+    src: url('../fonts/roseCaps.ttf');
+}
+
+
+
 .titre {
     font-family: german;
 }
@@ -36,25 +68,27 @@
 .box {
     position: relative;
     border: 1px solid #dfdfdf;
-    background-color: white;
+    background-color: rgba(255, 255, 255, .5);
     width: 700px;
     padding: 18px;
 }
 
 .box h2 {
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 500;
     font-family: titres;
     /*background: linear-gradient(93deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(255, 255, 255, 1) 100%);*/
-    background-image: url("../pictures/bg/bg_red.png");
     background-size: cover;
     padding: 10px 15px;
-    color: white;
+    color: black;
     margin-bottom: 15px;
     animation-name: itComesFromRight;
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: currentcolor;
+    text-decoration-color: rgb(201, 0, 9);
 }
 
 .jump {

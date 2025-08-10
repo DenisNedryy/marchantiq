@@ -1,6 +1,7 @@
-import marchantiqLogo from "../../assets/pictures/logo/marchantiq_logo.png";
-import logoAntic from "../../assets/pictures/logo/logo_antic.png";
-import chopeGer from "../../assets/pictures/logo/chopeGer.png";
+import logo_choppe from "../../assets/pictures/logo/logo_choppe.png";
+import empire from "../../assets/pictures/icon/blasons/empire.png";
+import fr from "../../assets/pictures/icon/blasons/fr.png";
+import drapeau from "../../assets/pictures/icon/blasons/drapeau.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { SearchBarHeader } from "../forms/SearchBarHeader.jsx";
 import { useState, useEffect, useRef } from "react";
@@ -70,8 +71,13 @@ export function Header() {
         <header>
             <div className="header__logo">
                 <div className="header__logo__content">
-                    <img src={marchantiqLogo} alt="logo_principale" />
-                    <i className="fa-solid fa-right-from-bracket" onClick={handleDisconnect} />
+                    <img src={fr} alt="logo fr" />
+                    <img src={empire} alt="logo ger" />
+                    <div>
+                        <h1><span className="inital-red">M</span><span className="main-title">archantiq</span></h1>
+                        <p>Achat - Vente - Estimation</p>
+                    </div>
+                    <img src={drapeau} className="drapeau" alt="logo drapeau" />
                 </div>
             </div>
             <div className="header__menu">
@@ -89,6 +95,7 @@ export function Header() {
                             <NavLink to="/contact" onClick={togglePageMini}><li><span>Contact</span></li></NavLink>
                             <NavLink to="/auth" onClick={togglePageMini}><li><span>Auth</span></li></NavLink>
                             {state.isConnected && <NavLink to="/admin/addItems" onClick={togglePageMini}><li><span>Ajouter un objet</span></li></NavLink>}
+                            {state.isConnected && <i className="fa-solid fa-right-from-bracket" onClick={handleDisconnect} />}
                         </ul>
                         <div className="border"></div>
                     </div>
@@ -98,12 +105,14 @@ export function Header() {
 
                 <div className="header__menu__pages">
                     <ul>
-                        <NavLink to="/"><li data-text="Accueil" style={{ width: "90px" }}><span>Accueil</span></li></NavLink>
+
+                        <NavLink to="/"><li data-text="Accueil" style={{ width: "90px" }} className={({ isActive }) => isActive ? "categoryActive" : ""}><span>Accueil</span></li></NavLink>
                         <NavLink to="/presentation"><li data-text="Presentation" style={{ width: "98px" }}><span>Presentation</span></li></NavLink>
                         <NavLink to="/news"><li data-text="Le coin des collectionneurs" style={{ width: "220px" }}><span>Le coin des collectionneurs</span></li></NavLink>
                         <NavLink to="/contact"><li data-text="Contact" style={{ width: "85px" }}><span>Contact</span></li></NavLink>
                         <NavLink to="/auth"><li data-text="Auth" style={{ width: "80px" }}><span>Auth</span></li></NavLink>
                         {state.isConnected && <NavLink to="/admin/addItems"><li data-text="Ajouter un objet" style={{ width: "124px" }}><span>Ajouter un objet</span></li></NavLink>}
+                        {state.isConnected && <i className="fa-solid fa-right-from-bracket" onClick={handleDisconnect} />}
                     </ul>
                     <i className="fa-solid fa-magnifying-glass" onClick={displaySearchBarMenu}></i>
                 </div>

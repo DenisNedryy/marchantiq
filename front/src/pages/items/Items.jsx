@@ -76,7 +76,7 @@ export function Items({ itemsData = [] }) {
                     {items && items.length > 0 && items.map((item, index) => (
                         <NavLink to={`/items/${category}/items-details/${item.uuid}`} key={index} className="items__container__item item-fade-in"
                             style={{ animationDelay: `${index * 100}ms` }} ref={itemContainerRef}>
-                            {item.isNew && <div className="items__container__item--banner">Nouveau</div>}
+                            {item.isNew === 1 && <div className="items__container__item--banner">Nouveau</div>}
                             <img src={`${HOST}/api/images/items/${item.images[0].img_url}`} />
                             <div className="items__container__item__text">
                                 <p className="items__container__item__text--name">{item.name}</p>
@@ -84,10 +84,8 @@ export function Items({ itemsData = [] }) {
                             </div>
                         </NavLink>
                     ))}
-
                     {itemsNotFound && <img src={notFound404} className="imgNotFound" />}
                 </div>
-
                 {items && items.length > 0 && <PaginationBottom pageLength={nbPage} currentPage={myCurrentPage} route={`/items/${category}`} itemsPerPage={itemsPerPage} />}
             </div>
         </div>

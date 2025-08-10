@@ -1,5 +1,5 @@
 .categories {
-    background-color: white;
+    background-color: rgba(255, 255, 255, .5);
     padding: 25px;
     border: 1px solid #dfdfdf;
     margin-right: 15px;
@@ -8,19 +8,24 @@
 .categories h2 {
     text-align: center;
     font-size: 30px;
-    font-weight: 600;
-    border-bottom: 1px solid black;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(201, 0, 9);
     margin-bottom: 15px;
     padding: 7px;
-    background-color: rgba(255, 255, 255, .7);
     font-family: titres;
+}
+
+.categories a {
+    padding: 8px 0px 8px 23px;
+    margin: 15px 0px;
 }
 
 .categories li {
     display: flex;
     align-items: center;
     width: 226px;
-    padding: 8px 0px 8px 23px;
+    /* padding: 8px 0px 8px 23px; */
+    /* margin: 15px 0px; */
     left: 17px;
     font-weight: 600;
     display: flex;
@@ -28,34 +33,42 @@
     border-bottom: 1px solid #dfdfdf;
     font-size: 19px;
     color: rgb(51, 51, 51);
-    margin: 15px 0px;
+    transition-duration: 1s;
+    padding: 5px;
 }
 
 .categories li:hover {
     cursor: pointer;
-    color: black;
-    background: rgba(0, 0, 0, .1);
-    background: linear-gradient(93deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .1) 60%, rgba(255, 255, 255, 1) 100%);
+    background-color: rgb(250, 196, 97);
+}
+
+.categoryActive li {
+    background-color: rgb(250, 196, 97);
+}
+
+li p {
+    transition-duration: .4s;
+}
+
+li:hover p {
+    transform: translateX(10px);
 }
 
 .categories__origin img {
     width: 200px;
     /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     width: 273px;
-    margin-top: 14px;
+    transition-duration: .4s;
 }
 
 .categories li:hover img {
-    transform: translateX(-10px);
+    transform: translateX(-10px) scale(1.2);
 }
 
 .categories li img {
     width: 30px;
     margin-right: 15px;
-    padding: 5px;
+    padding: 2px;
 }
 
 .categories.open {
@@ -63,6 +76,6 @@
     right: 0;
 }
 
-.categories__miniMenu{
-    display:none;
+.categories__miniMenu {
+    display: none;
 }

@@ -1,14 +1,15 @@
 header {
+    position: fixed;
     display: flex;
     flex-direction: column;
-    position: fixed;
     width: 100%;
     z-index: 9999;
-    height: 95px;
+    font-family: roboto-regular;
 }
 
 .header__logo {
-    background-color: black;
+    background-color: whitesmoke;
+    background-color: rgb(245, 235, 209);
     width: 100%;
     z-index: 5;
     position: relative;
@@ -16,8 +17,23 @@ header {
 
 .header__logo__content {
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 12px;
+    width: 52%;
+    margin: auto;
+    position: relative;
+}
+
+.header__logo__content div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 101px;
+}
+
+.header__logo__content p {
+    font-size: 22px;
+    margin-left: 15px;
 }
 
 .header__logo__content i {
@@ -32,7 +48,29 @@ header {
 }
 
 header .header__logo img {
-    width: 188px;
+    width: 100px;
+}
+
+.header__logo__content h1 {
+    /* font-family: cardinal; */
+    /* font-family: oddEng; */
+    font-family: eastAnglia;
+    /* font-family: univers; */
+    font-size: 31px;
+
+}
+
+html body .drapeau {
+    width: 86px;
+}
+
+.inital-red {
+    color: rgb(201, 0, 9);
+}
+
+.main-title {
+    text-decoration: underline;
+    text-decoration-color: rgb(201, 0, 9);
 }
 
 /*----------- Menu  ---------*/
@@ -41,8 +79,9 @@ header .header__logo img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    border: 1px solid rgb(220, 220, 220);
+    background-color: rgb(250, 196, 97);
+    border-top: 2px solid rgb(85, 27, 0);
+    border-bottom: 2px solid rgb(85, 27, 0);
     position: relative;
     z-index: 5;
 }
@@ -127,14 +166,19 @@ header .header__logo img {
     transform: scale(1.5) translate(20%);
 }
 
+.fa-right-from-bracket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /*--------- FORM searchBar ---------*/
 
 .header__searchBar {
     background: linear-gradient(275deg, #d6c7a3 20%, #a68f6b 85%);
-
     padding: 15px;
     position: absolute;
-    top: 93px;
+    top: 91px;
     z-index: 4;
     transform: translateY(-100%);
     animation-duration: .8s;
@@ -182,10 +226,11 @@ header .header__logo img {
 
 .header__menu__pagesMini {
     position: relative;
-    display:none;
+    display: none;
 }
-.header__menu__pagesMini__menu{
-    display:none;
+
+.header__menu__pagesMini__menu {
+    display: none;
 }
 
 .header__menu__pagesMini__menu ul {
@@ -193,7 +238,7 @@ header .header__logo img {
 }
 
 body .header__menu__pagesMini__menu li {
-    margin: 35px 25px;
+    margin: 15px 0px;
     font-size: 20px;
     color: rgb(64, 64, 64);
     cursor: pointer;
@@ -202,7 +247,7 @@ body .header__menu__pagesMini__menu li {
 
 .header__menu__pagesMini__menu {
     position: fixed;
-    top: 90px;
+    top: 204px;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -215,7 +260,21 @@ body .header__menu__pagesMini__menu li {
     padding: 30px 5px;
 }
 
-.header__menu__pagesMini__menu.open { 
+.header__menu__pagesMini__menu ul li:hover {
+    cursor: pointer;
+    background-color: rgb(250, 196, 97);
+}
+
+.header__menu__pagesMini__menu .active li{
+    background-color: rgb(250, 196, 97);
+}
+
+.header__menu__pagesMini__menu ul li {
+    width: 100%;
+    padding: 8px;
+}
+
+.header__menu__pagesMini__menu.open {
     transform: translateX(0);
     right: 0;
 }
@@ -223,4 +282,8 @@ body .header__menu__pagesMini__menu li {
 .header__menu__pagesMini i {
     padding: 15px;
     cursor: pointer;
+}
+
+.header__menu {
+    padding: 8px;
 }

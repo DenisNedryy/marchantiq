@@ -6,7 +6,7 @@ export function Footer() {
             <div className="footerContainer">
                 <div className="footerContainer__top">
                     <div className="footerContainer__top__left">
-                        <img src="src/assets/pictures/logo/marchantiq_logo_black.png" alt="logo" />
+                        <p><span className="inital-red">M</span><span className="main-title">archantiq</span></p>
                     </div>
                     <div className="footerContainer__top__right">
                         <div className="footerContainer__top__right--category">
