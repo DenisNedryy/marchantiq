@@ -513,6 +513,11 @@
     body .carrousel__slides__slide {
         width: 211px;
     }
+
+    html body .footerContainer__top {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width: 690px) {
